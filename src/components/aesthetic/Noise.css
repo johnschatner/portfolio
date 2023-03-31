@@ -1,0 +1,51 @@
+.noise {
+  position: fixed;
+  z-index: 9000;
+  top: -300%;
+  left: -150%;
+  width: 600%;
+  height: 600%;
+  background-image: url(/src/assets/noise.png);
+  background-size: 250px;
+  background-repeat: repeat;
+  animation: bg-animation 7s steps(10) infinite;
+  opacity: 0.7;
+  visibility: visible;
+  pointer-events: none;
+}
+
+@keyframes bg-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 0);
+  }
+  70% {
+    transform: translate(0, 10%);
+  }
+  80% {
+    transform: translate(-15%, 0);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+  100% {
+    transform: translate(5%, 0);
+  }
+}

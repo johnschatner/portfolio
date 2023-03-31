@@ -1,0 +1,4 @@
+/* Animated properties hamburger menu */
+.hamburger-svg rect {
+  opacity: 0.6;
+}

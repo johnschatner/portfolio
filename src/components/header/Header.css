@@ -1,0 +1,41 @@
+:root {
+  --header-width: 1280px;
+}
+
+.header-gap {
+  height: 80px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  left: 0;
+  right: 0;
+}
+
+.header-container {
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.jk-inner-container {
+  width: var(--header-width);
+  display: flex;
+  align-items: center;
+}
+
+header .header-container ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+header .header-container li {
+  margin-left: 1rem;
+}
