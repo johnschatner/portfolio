@@ -1,6 +1,3 @@
-.logo {
-  position: relative;
-}
 .logo a {
   display: flex;
   gap: 0.5rem;
@@ -17,6 +14,12 @@
   color: #fff;
 }
 
+.logo {
+  position: relative;
+  font-size: 1.75rem;
+  letter-spacing: -0.05em;
+  font-weight: 200;
+}
 .logo-fullname {
   color: inherit;
 }
@@ -34,11 +37,11 @@
 .hover-effect {
   position: absolute;
   z-index: -1;
-  left: 32px;
+  left: 6px;
 }
 .hover-bar {
   position: absolute;
-  top: 10px;
+  top: 15px;
   width: 12px;
   height: 12px;
   border-radius: 99px;
@@ -46,27 +49,28 @@
   opacity: 0;
 }
 .logo:hover .hover-bar {
-  animation: in 0.15s cubic-bezier(0.59, 1.69, 0.73, 0.73) forwards;
+  animation: in 0.2s cubic-bezier(0.59, 1.69, 0.73, 0.73) forwards;
 }
 .logo:hover .hover-bar-one {
   left: 0;
   background-color: rgb(63, 73, 82);
   animation-delay: 0ms;
 }
+
 .logo:hover .hover-bar-two {
   left: 40px;
   background-color: rgb(63, 82, 75);
-  animation-delay: 50ms;
+  animation-delay: 20ms;
 }
 .logo:hover .hover-bar-three {
   left: 81px;
   background-color: rgb(81, 63, 82);
-  animation-delay: 100ms;
+  animation-delay: 40ms;
 }
 .logo:hover .hover-bar-four {
   left: 120px;
   background-color: rgb(82, 63, 63);
-  animation-delay: 150ms;
+  animation-delay: 60ms;
 }
 
 @keyframes in {
