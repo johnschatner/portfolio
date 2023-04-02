@@ -19,13 +19,15 @@
 
 .logo-fullname {
   color: inherit;
+}
+.logo-alias {
   display: none;
 }
 .logo:hover .logo-fullname {
-  display: inline-block;
+  display: none;
 }
 .logo:hover .logo-alias {
-  display: none;
+  display: inline-block;
 }
 
 /*Hover effect*/

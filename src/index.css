@@ -41,10 +41,6 @@
 }
 
 a {
-  font-size: 1.25rem;
-  font-variation-settings: "wght" 500, "wdth" 125;
-  color: var(--color);
-  text-transform: lowercase;
   text-decoration: none;
 }
 
