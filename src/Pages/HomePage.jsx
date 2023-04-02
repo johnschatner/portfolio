@@ -3,7 +3,7 @@ import LandingBanner from "../components/main/LandingBanner";
 
 function HomePage() {
   return (
-    <main className="site-wrapper">
+    <main>
       <LandingBanner></LandingBanner>
     </main>
   );

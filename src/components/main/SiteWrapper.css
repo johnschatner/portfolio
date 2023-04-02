@@ -1,0 +1,28 @@
+.site-wrapper {
+  position: fixed;
+
+  padding: 2rem;
+
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 999;
+}
+
+.site-border {
+  position: relative;
+  height: calc(100vh - 4rem);
+  width: calc(100vw - 4rem);
+  padding: 2rem;
+  border: 1px solid #808080;
+}
+
+.site-content {
+  position: absolute;
+  padding: 2rem;
+  max-width: 250px;
+  right: 0;
+  bottom: 0;
+}

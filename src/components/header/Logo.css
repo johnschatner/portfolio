@@ -1,3 +1,6 @@
+.logo {
+  position: relative;
+}
 .logo a {
   display: flex;
   gap: 0.5rem;
@@ -15,17 +18,72 @@
 }
 
 .logo-fullname {
+  color: inherit;
+  display: none;
+}
+.logo:hover .logo-fullname {
+  display: inline-block;
+}
+.logo:hover .logo-alias {
+  display: none;
+}
+
+/*Hover effect*/
+.hover-effect {
   position: absolute;
-
-  padding: 0.25rem 1rem;
+  z-index: -1;
+  left: 32px;
+}
+.hover-bar {
+  position: absolute;
+  top: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 99px;
-  background-color: var(--primary-color-dark);
-  color: var(--primary-color-light);
-
   scale: 0;
   opacity: 0;
 }
-.logo:hover ~ .logo-fullname {
-  opacity: 1;
-  scale: 1;
+.logo:hover .hover-bar {
+  animation: in 0.15s cubic-bezier(0.59, 1.69, 0.73, 0.73) forwards;
+}
+.logo:hover .hover-bar-one {
+  left: 0;
+  background-color: rgb(63, 73, 82);
+  animation-delay: 0ms;
+}
+.logo:hover .hover-bar-two {
+  left: 40px;
+  background-color: rgb(63, 82, 75);
+  animation-delay: 50ms;
+}
+.logo:hover .hover-bar-three {
+  left: 81px;
+  background-color: rgb(81, 63, 82);
+  animation-delay: 100ms;
+}
+.logo:hover .hover-bar-four {
+  left: 120px;
+  background-color: rgb(82, 63, 63);
+  animation-delay: 150ms;
+}
+
+@keyframes in {
+  from {
+    scale: 0;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+@keyframes out {
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 0;
+    opacity: 0;
+  }
 }

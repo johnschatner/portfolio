@@ -1,6 +1,7 @@
 /*Dark theme*/
 body.dark {
-  background-color: #313338;
+  /* background-color: #313338; */
+  background-color: #000;
 }
 body.dark svg {
   color: #fff;

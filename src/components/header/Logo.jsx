@@ -12,11 +12,17 @@ function Logo() {
               A portfolio showcasing works by johnschatner (IsacR)
             </span>
             <ion-icon name="code-outline"></ion-icon>
-            <span>johnschatner</span>
+            <span className="logo-alias">johnschatner</span>
+            <span className="logo-fullname">Isac Rasmusson</span>
+            <div className="hover-effect">
+              <div className="hover-bar hover-bar-one"></div>
+              <div className="hover-bar hover-bar-two"></div>
+              <div className="hover-bar hover-bar-three"></div>
+              <div className="hover-bar hover-bar-four"></div>
+            </div>
           </a>
         </Link>
       </div>
-      <span className="logo-fullname">Isac Rasmusson</span>
     </Fragment>
   );
 }
