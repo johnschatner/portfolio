@@ -27,7 +27,7 @@ const ParticleSystem = () => {
   varying float vOpacity;
 
   void main() {
-    vOpacity = 0.5 + 0.5 * waveHeight; // set opacity based on wave height
+    vOpacity = waveHeight; // set opacity based on wave height
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     gl_PointSize = 1.0;
   }
@@ -58,7 +58,14 @@ const ParticleSystem = () => {
 
   const waveHeights = new Float32Array(count);
   for (let i = 0; i < count; i++) {
-    waveHeights[i] = 0;
+    // create opacity clusters
+    if (i < 5000) {
+      waveHeights[i] = 0.0;
+    } else if (i < 7500) {
+      waveHeights[i] = 1.0;
+    } else {
+      waveHeights[i] = 0.5;
+    }
   }
   geometry.setAttribute(
     "waveHeight",
@@ -86,9 +93,14 @@ const ParticleSystem = () => {
 
         particles.current.geometry.attributes.position.array[idx + 2] =
           wave1 + wave2 + wave3;
+
+        // calculate wave height and adjust range (0.0-1.0)
+        particles.current.geometry.attributes.waveHeight.array[idx / 3] =
+          (wave1 + wave2 + wave3) * 0.1 + 0.5;
       }
     }
 
+    particles.current.geometry.attributes.waveHeight.needsUpdate = true;
     particles.current.geometry.attributes.position.needsUpdate = true;
     particles.current.material.uniforms.time.value = time;
   });
