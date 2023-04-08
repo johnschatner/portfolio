@@ -5,6 +5,7 @@ import * as THREE from "three";
 const ParticleSystem = () => {
   const particles = useRef();
   const count = 10000; // Number of particles
+  const gridSize = Math.sqrt(count);
 
   const positions = useMemo(() => {
     const pos = new Float32Array(count * 3);
@@ -12,44 +13,21 @@ const ParticleSystem = () => {
 
     for (let i = 0, idx = 0; i < gridSize; i++) {
       for (let j = 0; j < gridSize; j++, idx += 3) {
-        pos[idx] = (i - gridSize / 2) * 1.5;
-        pos[idx + 1] = (j - gridSize / 2) * 1.5;
+        pos[idx] = (i - gridSize / 2) * 1.0;
+        pos[idx + 1] = (j - gridSize / 2) * 1.0;
         pos[idx + 2] = 0;
       }
     }
     return pos;
   }, [count]);
 
-  useFrame((state) => {
-    const time = state.clock.getElapsedTime();
-    particles.current.rotation.y = time * 0.001;
-
-    const gridSize = Math.sqrt(count);
-
-    for (let i = 0, idx = 0; i < gridSize; i++) {
-      for (let j = 0; j < gridSize; j++, idx += 3) {
-        const x = particles.current.geometry.attributes.position.array[idx];
-        const y = particles.current.geometry.attributes.position.array[idx + 1];
-
-        particles.current.geometry.attributes.position.array[idx + 2] =
-          2 * Math.sin(time + x * 0.5) * Math.cos(time + y * 0.5);
-      }
-    }
-
-    particles.current.geometry.attributes.position.needsUpdate = true;
-    particles.current.material.uniforms.time.value = time;
-  });
-
-  const geometry = new THREE.BufferGeometry().setAttribute(
-    "position",
-    new THREE.BufferAttribute(positions, 3)
-  );
-
   const vertexShader = `
+  uniform float time;
+  attribute float waveHeight;
   varying float vOpacity;
 
   void main() {
-    vOpacity = position.x + 50.0;
+    vOpacity = 0.5 + 0.5 * waveHeight; // set opacity based on wave height
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     gl_PointSize = 1.0;
   }
@@ -60,8 +38,7 @@ const ParticleSystem = () => {
   varying float vOpacity;
 
   void main() {
-    float opacity = abs(sin((time + vOpacity) * 0.5));
-    gl_FragColor = vec4(1.0, 1.0, 1.0, opacity);
+    gl_FragColor = vec4(1.0, 1.0, 1.0, vOpacity);
   }
 `;
 
@@ -74,7 +51,47 @@ const ParticleSystem = () => {
     transparent: true,
   });
 
+  const geometry = new THREE.BufferGeometry().setAttribute(
+    "position",
+    new THREE.BufferAttribute(positions, 3)
+  );
+
+  const waveHeights = new Float32Array(count);
+  for (let i = 0; i < count; i++) {
+    waveHeights[i] = 0;
+  }
+  geometry.setAttribute(
+    "waveHeight",
+    new THREE.BufferAttribute(waveHeights, 1)
+  );
+
   const points = new THREE.Points(geometry, material);
+
+  useFrame((state) => {
+    const time = state.clock.getElapsedTime();
+    particles.current.rotation.y = time * 0.001;
+
+    for (let i = 0, idx = 0; i < gridSize; i++) {
+      for (let j = 0; j < gridSize; j++, idx += 3) {
+        const x = particles.current.geometry.attributes.position.array[idx];
+        const y = particles.current.geometry.attributes.position.array[idx + 1];
+
+        const wave1 = 2 * Math.sin(time + x * 0.5) * Math.cos(time + y * 0.5);
+        const wave2 =
+          1.5 *
+          Math.sin(time * 1.5 + x * 0.25) *
+          Math.cos(time * 1.5 + y * 0.25);
+        const wave3 =
+          Math.sin(time * 0.75 + x * 0.75) * Math.cos(time * 0.75 + y * 0.75);
+
+        particles.current.geometry.attributes.position.array[idx + 2] =
+          wave1 + wave2 + wave3;
+      }
+    }
+
+    particles.current.geometry.attributes.position.needsUpdate = true;
+    particles.current.material.uniforms.time.value = time;
+  });
 
   return <primitive ref={particles} object={points} />;
 };
