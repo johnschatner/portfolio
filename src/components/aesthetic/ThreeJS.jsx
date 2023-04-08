@@ -1,7 +1,14 @@
 import "./ThreeJS.css";
-import * as THREE from "three";
-import { useEffect, useRef } from "react";
 
-function ThreeJS() {}
+// Components
+import Particles from "./Particles";
+
+function ThreeJS() {
+  return (
+    <div className="threejs">
+      <Particles></Particles>
+    </div>
+  );
+}
 
 export default ThreeJS;
