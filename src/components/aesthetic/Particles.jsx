@@ -222,13 +222,13 @@ const ParticleSystem = () => {
 
         // Calculate the new wave height for hovering
         const hoverWave1 =
-          69 * Math.sin(time + x * 0.1) * Math.cos(time + y * 0.4);
+          10 * Math.sin(time + x * 0.1) * Math.cos(time + y * 0.4);
         const hoverWave2 =
-          4.54 *
+          -9.9 *
           Math.sin(time * 1.5 + x * 0.5) *
           Math.cos(time * 1.5 + y * 0.5);
         const hoverWave3 =
-          22 *
+          -5 *
           Math.sin(time * 0.75 + x * 0.75) *
           Math.cos(time * 0.75 + y * 0.75);
         const hoverWaveHeight = (hoverWave1 + hoverWave2 + hoverWave3) * 0.2;
