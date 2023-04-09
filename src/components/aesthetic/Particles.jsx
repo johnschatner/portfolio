@@ -6,7 +6,7 @@ import { PortfolioContext } from "../main/PortfolioContext";
 
 const ParticleSystem = () => {
   const particles = useRef();
-  const count = 12000; // Number of particles
+  const count = 7400; // Number of particles
   const particleSpacing = 1;
   const gridSize = Math.sqrt(count * 1.69);
   const {
@@ -21,14 +21,14 @@ const ParticleSystem = () => {
   const transitionSpeed = 0.01;
 
   const [particleColor, setParticleColor] = useState({
-    r: 0.7,
+    r: 0.8,
     g: 1.0,
     b: 1.0,
   });
 
   const updateParticleColor = () => {
     if (THEME === "dark") {
-      setParticleColor({ r: 0.7, g: 1.0, b: 1.0 }); // Set color to black
+      setParticleColor({ r: 0.8, g: 1.0, b: 1.0 }); // Set color to black
     } else {
       console.log("Set to white");
       setParticleColor({ r: 0, g: 0, b: 0 }); // Set color to original color
@@ -203,13 +203,13 @@ const ParticleSystem = () => {
         const x = particles.current.geometry.attributes.position.array[idx];
         const y = particles.current.geometry.attributes.position.array[idx + 1];
 
-        const wave1 = 2 * Math.sin(time + x * 0.2) * Math.cos(time + y * 0.8);
+        const wave1 = 4 * Math.sin(time + x * 0.2) * Math.cos(time + y * 0.8);
         const wave2 =
-          1.75 *
+          3.5 *
           Math.sin(time * 1.5 + x * 0.25) *
           Math.cos(time * 1.5 + y * 0.25);
         const wave3 =
-          2 *
+          4 *
           Math.sin(time * 0.75 + x * 0.75) *
           Math.cos(time * 0.75 + y * 0.75);
 
@@ -217,27 +217,25 @@ const ParticleSystem = () => {
 
         if (!isHovering) {
           particles.current.geometry.attributes.position.array[idx + 2] =
-            waveHeight * -3.02;
+            waveHeight * -3;
         }
 
         // Calculate the new wave height for hovering
         const hoverWave1 =
-          10 * Math.sin(time + x * 0.1) * Math.cos(time + y * 0.4);
+          -10 * Math.cos(time + x * 0.1) * Math.cos(time + y * 0.4);
         const hoverWave2 =
-          -9.9 *
-          Math.sin(time * 1.5 + x * 0.5) *
-          Math.cos(time * 1.5 + y * 0.5);
+          -4 * Math.cos(time * 1.5 + x * 0.5) * Math.cos(time * 1.5 + y * 0.5);
         const hoverWave3 =
-          -5 *
-          Math.sin(time * 0.75 + x * 0.75) *
-          Math.cos(time * 0.75 + y * 0.75);
+          -10 *
+          Math.cos(time * 0.75 + x * 0.75) *
+          Math.sin(time * 0.75 + y * 0.75);
         const hoverWaveHeight = (hoverWave1 + hoverWave2 + hoverWave3) * 0.2;
 
         // Interpolate between the original wave height and the new wave height when hovering using the eased progress
         const finalWaveHeight =
-          (3 - easedProgress) * waveHeight + easedProgress * hoverWaveHeight;
+          (1 - easedProgress) * waveHeight + easedProgress * hoverWaveHeight;
         particles.current.geometry.attributes.position.array[idx + 2] =
-          finalWaveHeight * -3.02;
+          finalWaveHeight * -2;
 
         const opacity = waveHeight < 0 ? 0.05 : waveHeight * BACKGROUND;
 
@@ -284,7 +282,7 @@ const Particles = () => {
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
       <Canvas
         style={{ position: "absolute", top: 0, left: 0 }}
-        camera={{ position: [0, 0, 15], fov: 75 }}
+        camera={{ position: [0, 0, 14], fov: 75 }}
         onCreated={({ gl }) => {
           gl.setPixelRatio(window.devicePixelRatio);
           gl.setSize(window.innerWidth, window.innerHeight);
