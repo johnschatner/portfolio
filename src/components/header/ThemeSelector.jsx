@@ -3,7 +3,7 @@ import "./ThemeSelector.css";
 import { PortfolioContext } from "../main/PortfolioContext";
 
 function ThemeSelector() {
-  const { THEME, setTHEME } = useContext(PortfolioContext);
+  const { THEME, setTHEME, doHoverEffect } = useContext(PortfolioContext);
 
   const toggleTheme = () => {
     if (THEME === "dark") {
@@ -13,12 +13,16 @@ function ThemeSelector() {
     }
   };
 
+  const handleMouse = (e) => {
+    doHoverEffect(e);
+  };
+
   useEffect(() => {
     document.body.className = THEME;
   }, [THEME]);
 
   return (
-    <div>
+    <div onMouseEnter={handleMouse} onMouseLeave={handleMouse}>
       <button onClick={toggleTheme} className="theme-selector">
         {THEME === "light" && (
           <svg

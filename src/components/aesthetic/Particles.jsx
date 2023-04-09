@@ -9,7 +9,13 @@ const ParticleSystem = () => {
   const count = 22100; // Number of particles
   const particleSpacing = 1;
   const gridSize = Math.sqrt(count * 1.6);
-  const { THEME } = useContext(PortfolioContext);
+  const {
+    THEME,
+    BACKGROUND,
+    targetOpacity,
+    currentOpacity,
+    setCurrentOpacity,
+  } = useContext(PortfolioContext);
 
   const [particleColor, setParticleColor] = useState({
     r: 0.7,
@@ -158,6 +164,17 @@ const ParticleSystem = () => {
   useFrame((state) => {
     const time = state.clock.getElapsedTime() * 0.4;
     const { width, height } = state.viewport;
+    const opacityTransitionSpeed = 0.04;
+
+    // Calculate the new currentOpacity values by gradually approaching targetOpacity
+    const newCurrentOpacity = currentOpacity.map((value, idx) => {
+      const diff = targetOpacity[idx] - value;
+      const delta =
+        Math.sign(diff) * Math.min(Math.abs(diff), opacityTransitionSpeed);
+      return value + delta;
+    });
+
+    setCurrentOpacity(newCurrentOpacity);
 
     for (let i = 0, idx = 0; i < gridSize; i++) {
       for (let j = 0; j < gridSize; j++, idx += 3) {
@@ -184,9 +201,10 @@ const ParticleSystem = () => {
         particles.current.geometry.attributes.position.array[idx + 2] =
           waveHeight * 0.02;
 
-        const opacity = waveHeight < 0 ? 0.05 : waveHeight * 1;
+        const opacity = waveHeight < 0 ? 0.05 : waveHeight * BACKGROUND;
 
-        particles.current.geometry.attributes.opacity.array[idx / 3] = opacity;
+        particles.current.geometry.attributes.opacity.array[idx / 3] =
+          opacity * newCurrentOpacity[idx / 3];
       }
     }
 
