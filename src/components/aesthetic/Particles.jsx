@@ -1,13 +1,15 @@
-import React, { useRef, useMemo, useState, useEffect } from "react";
+import React, { useRef, useMemo, useState, useEffect, useContext } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import Stats from "stats.js";
+import { PortfolioContext } from "../main/PortfolioContext";
 
 const ParticleSystem = () => {
   const particles = useRef();
   const count = 22100; // Number of particles
   const particleSpacing = 1;
   const gridSize = Math.sqrt(count * 1.6);
+  const { THEME } = useContext(PortfolioContext);
 
   const [particleColor, setParticleColor] = useState({
     r: 0.7,
@@ -16,16 +18,27 @@ const ParticleSystem = () => {
   });
 
   const updateParticleColor = () => {
-    if (document.body.classList.contains("dark")) {
+    if (THEME === "dark") {
       setParticleColor({ r: 0.7, g: 1.0, b: 1.0 }); // Set color to black
     } else {
+      console.log("Set to white");
       setParticleColor({ r: 0, g: 0, b: 0 }); // Set color to original color
     }
   };
 
   useEffect(() => {
     updateParticleColor(); // Update the color initially
-  }, []);
+  }, [THEME]);
+
+  useEffect(() => {
+    if (materialRef.current) {
+      materialRef.current.uniforms.particleColor.value.set(
+        particleColor.r,
+        particleColor.g,
+        particleColor.b
+      );
+    }
+  }, [particleColor]);
 
   const { viewport } = useThree();
   const pixelRatio = window.devicePixelRatio;

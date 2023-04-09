@@ -1,26 +1,26 @@
-import { useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import "./ThemeSelector.css";
+import { PortfolioContext } from "../main/PortfolioContext";
 
 function ThemeSelector() {
-  const [theme, setTheme] = useState("dark");
+  const { THEME, setTHEME } = useContext(PortfolioContext);
 
   const toggleTheme = () => {
-    if (theme === "dark") {
-      setTheme("light");
+    if (THEME === "dark") {
+      setTHEME("light");
     } else {
-      setTheme("dark");
+      setTHEME("dark");
     }
-    console.log(theme);
   };
 
   useEffect(() => {
-    document.body.className = theme;
-  }, [theme]);
+    document.body.className = THEME;
+  }, [THEME]);
 
   return (
     <div>
       <button onClick={toggleTheme} className="theme-selector">
-        {theme === "light" && (
+        {THEME === "light" && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="ionicon"
@@ -47,7 +47,7 @@ function ThemeSelector() {
             />
           </svg>
         )}
-        {theme === "dark" && (
+        {THEME === "dark" && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="ionicon active"
