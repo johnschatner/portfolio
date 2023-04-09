@@ -25,7 +25,7 @@ function Logo() {
           <span className="logo-alias">johnschatner</span>
         </Link>
       </div>
-      <span className="logo-work-title">Front-end Developer</span>
+      <span className="logo-work-title">Frontend Developer</span>
     </Fragment>
   );
 }

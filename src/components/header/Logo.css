@@ -17,13 +17,14 @@
 .logo {
   position: relative;
   font-size: 3.25rem;
-  letter-spacing: -0.0675em;
+  letter-spacing: -0.0475em;
   font-weight: 200;
 }
 .logo-work-title {
+  margin-left: 4px;
   font-size: 1rem;
-  letter-spacing: -0.0875em;
-  font-weight: 200;
+  letter-spacing: -0.0175em;
+  font-weight: 300;
 }
 @media (max-width: 768px) {
   .logo {
@@ -42,4 +43,5 @@
 }
 .logo:hover .logo-alias {
   display: inline-block;
+  width: 330px;
 }

@@ -16,6 +16,10 @@ body.light {
 body.light a {
   color: var(--primary-color-dark);
 }
+body.light span,
+body.light p {
+  color: var(--primary-color-dark);
+}
 
 /*Sitewide SVG effects*/
 .theme-selector svg {

@@ -16,7 +16,8 @@ export const PortfolioContextProvider = (props) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const doHoverEffect = (e) => {
-    const newOpacity = e.type === "mouseenter" ? 0.3 : 1;
+    const newOpacity =
+      e.type === "mouseenter" ? (THEME === "dark" ? 0.5 : 0.7) : 1;
     setTargetOpacity(targetOpacity.map(() => newOpacity));
 
     if (e.type === "mouseenter") {

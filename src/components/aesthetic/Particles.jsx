@@ -8,7 +8,7 @@ const ParticleSystem = () => {
   const particles = useRef();
   const count = 5900; // Number of particles
   const particleSpacing = 1;
-  const gridSize = Math.sqrt(count * 1.69);
+  const gridSize = Math.sqrt(count * 1.39);
   const {
     THEME,
     BACKGROUND,
@@ -30,8 +30,7 @@ const ParticleSystem = () => {
     if (THEME === "dark") {
       setParticleColor({ r: 0.8, g: 1.0, b: 1.0 }); // Set color to black
     } else {
-      console.log("Set to white");
-      setParticleColor({ r: 0, g: 0, b: 0 }); // Set color to original color
+      setParticleColor({ r: 0.4, g: 0.4, b: 0.4 }); // Set color to original color
     }
   };
 
@@ -179,9 +178,9 @@ const ParticleSystem = () => {
   }
 
   useFrame((state) => {
-    const time = state.clock.getElapsedTime() * 0.2;
+    const time = state.clock.getElapsedTime() * 0.15;
     const { width, height } = state.viewport;
-    const opacityTransitionSpeed = 0.01;
+    const opacityTransitionSpeed = 0.015;
 
     // Update the transitionProgress based on the hovering status
     const newTransitionProgress = isHovering
@@ -249,7 +248,8 @@ const ParticleSystem = () => {
         particles.current.geometry.attributes.position.array[idx + 2] =
           finalWaveHeight * -2;
 
-        const opacity = waveHeight < 0 ? 0.05 : waveHeight * BACKGROUND;
+        const opacity =
+          waveHeight < 0 ? (THEME === "dark" ? 0.1 : 0.3) : waveHeight * 0.5;
 
         particles.current.geometry.attributes.opacity.array[idx / 3] =
           opacity * newCurrentOpacity[idx / 3];
