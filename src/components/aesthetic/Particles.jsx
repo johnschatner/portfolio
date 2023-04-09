@@ -4,7 +4,7 @@ import * as THREE from "three";
 
 const ParticleSystem = () => {
   const particles = useRef();
-  const count = 20000; // Number of particles
+  const count = 10000; // Number of particles
   const gridSize = Math.sqrt(count);
 
   const { viewport } = useThree();
