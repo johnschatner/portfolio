@@ -6,7 +6,7 @@ import { PortfolioContext } from "../main/PortfolioContext";
 
 const ParticleSystem = () => {
   const particles = useRef();
-  const count = 7400; // Number of particles
+  const count = 5900; // Number of particles
   const particleSpacing = 1;
   const gridSize = Math.sqrt(count * 1.69);
   const {
@@ -169,6 +169,15 @@ const ParticleSystem = () => {
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   }
 
+  const randomAmplitudes = useRef(Array(gridSize * gridSize).fill(0));
+
+  // Initialize random amplitudes for each particle
+  if (randomAmplitudes.current.every((value) => value === 0)) {
+    randomAmplitudes.current = randomAmplitudes.current.map(
+      () => -1 * (Math.random() * (11 - 4) + 4)
+    );
+  }
+
   useFrame((state) => {
     const time = state.clock.getElapsedTime() * 0.2;
     const { width, height } = state.viewport;
@@ -220,15 +229,18 @@ const ParticleSystem = () => {
             waveHeight * -3;
         }
 
-        // Calculate the new wave height for hovering
         const hoverWave1 =
-          -10 * Math.cos(time + x * 0.1) * Math.cos(time + y * 0.4);
+          randomAmplitudes.current[idx / 3] *
+          Math.sin(time + x * 0.1) *
+          Math.cos(time + y * 0.4);
         const hoverWave2 =
-          -4 * Math.cos(time * 1.5 + x * 0.5) * Math.cos(time * 1.5 + y * 0.5);
+          randomAmplitudes.current[idx / 3] *
+          Math.sin(time * 1.5 + x * 0.5) *
+          Math.cos(time * 1.5 + y * 0.5);
         const hoverWave3 =
-          -10 *
-          Math.cos(time * 0.75 + x * 0.75) *
-          Math.sin(time * 0.75 + y * 0.75);
+          randomAmplitudes.current[idx / 3] *
+          Math.sin(time * 0.75 + x * 0.75) *
+          Math.cos(time * 0.75 + y * 0.75);
         const hoverWaveHeight = (hoverWave1 + hoverWave2 + hoverWave3) * 0.2;
 
         // Interpolate between the original wave height and the new wave height when hovering using the eased progress
