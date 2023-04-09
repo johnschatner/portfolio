@@ -12,10 +12,31 @@ export const PortfolioContextProvider = (props) => {
   const [currentOpacity, setCurrentOpacity] = useState(
     new Float32Array(count).fill(1)
   );
+  const [targetWavePositions, setTargetWavePositions] = useState(null);
+  const [isHovering, setIsHovering] = useState(false);
 
   const doHoverEffect = (e) => {
     const newOpacity = e.type === "mouseenter" ? 0.3 : 1;
     setTargetOpacity(targetOpacity.map(() => newOpacity));
+
+    if (e.type === "mouseenter") {
+      setIsHovering(true);
+      const spherePositions = [];
+      const radius = 30;
+      for (let i = 0; i < count; i++) {
+        const phi = Math.acos(-1 + (2 * i) / count);
+        const theta = Math.sqrt(count * Math.PI) * phi;
+        const x = radius * Math.cos(theta) * Math.sin(phi);
+        const y = radius * Math.sin(theta) * Math.sin(phi);
+        const z = radius * Math.cos(phi);
+        spherePositions.push({ x, y, z });
+      }
+      setTargetWavePositions(spherePositions);
+    } else {
+      setIsHovering(false);
+      setBACKGROUND(1);
+      setTargetWavePositions(null);
+    }
   };
 
   // Export
@@ -28,6 +49,8 @@ export const PortfolioContextProvider = (props) => {
     targetOpacity,
     currentOpacity,
     setCurrentOpacity,
+    targetWavePositions,
+    isHovering,
   };
 
   return (

@@ -6,16 +6,19 @@ import { PortfolioContext } from "../main/PortfolioContext";
 
 const ParticleSystem = () => {
   const particles = useRef();
-  const count = 22100; // Number of particles
+  const count = 12000; // Number of particles
   const particleSpacing = 1;
-  const gridSize = Math.sqrt(count * 1.6);
+  const gridSize = Math.sqrt(count * 1.69);
   const {
     THEME,
     BACKGROUND,
     targetOpacity,
     currentOpacity,
     setCurrentOpacity,
+    isHovering,
   } = useContext(PortfolioContext);
+  const [transitionProgress, setTransitionProgress] = useState(0);
+  const transitionSpeed = 0.01;
 
   const [particleColor, setParticleColor] = useState({
     r: 0.7,
@@ -161,10 +164,24 @@ const ParticleSystem = () => {
 
   const points = new THREE.Points(geometry, material);
 
+  // Easing function for smooth transitions
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
   useFrame((state) => {
-    const time = state.clock.getElapsedTime() * 0.4;
+    const time = state.clock.getElapsedTime() * 0.2;
     const { width, height } = state.viewport;
-    const opacityTransitionSpeed = 0.04;
+    const opacityTransitionSpeed = 0.01;
+
+    // Update the transitionProgress based on the hovering status
+    const newTransitionProgress = isHovering
+      ? Math.min(transitionProgress + transitionSpeed, 1)
+      : Math.max(transitionProgress - transitionSpeed, 0);
+    setTransitionProgress(newTransitionProgress);
+
+    // Calculate eased progress for smoother transitions
+    const easedProgress = easeInOutCubic(newTransitionProgress);
 
     // Calculate the new currentOpacity values by gradually approaching targetOpacity
     const newCurrentOpacity = currentOpacity.map((value, idx) => {
@@ -198,8 +215,29 @@ const ParticleSystem = () => {
 
         const waveHeight = (wave1 + wave2 + wave3) * 0.2;
 
+        if (!isHovering) {
+          particles.current.geometry.attributes.position.array[idx + 2] =
+            waveHeight * -3.02;
+        }
+
+        // Calculate the new wave height for hovering
+        const hoverWave1 =
+          200 * Math.sin(time + x * 0.1) * Math.cos(time + y * 0.4);
+        const hoverWave2 =
+          1.75 *
+          Math.sin(time * 1.5 + x * 0.5) *
+          Math.cos(time * 1.5 + y * 0.5);
+        const hoverWave3 =
+          -1 *
+          Math.sin(time * 0.75 + x * 0.75) *
+          Math.cos(time * 0.75 + y * 0.75);
+        const hoverWaveHeight = (hoverWave1 + hoverWave2 + hoverWave3) * 0.2;
+
+        // Interpolate between the original wave height and the new wave height when hovering using the eased progress
+        const finalWaveHeight =
+          (3 - easedProgress) * waveHeight + easedProgress * hoverWaveHeight;
         particles.current.geometry.attributes.position.array[idx + 2] =
-          waveHeight * 0.02;
+          finalWaveHeight * -3.02;
 
         const opacity = waveHeight < 0 ? 0.05 : waveHeight * BACKGROUND;
 

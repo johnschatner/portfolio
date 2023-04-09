@@ -16,10 +16,21 @@
 
 .logo {
   position: relative;
-  font-size: 1.75rem;
-  letter-spacing: -0.075em;
+  font-size: 3.25rem;
+  letter-spacing: -0.0675em;
   font-weight: 200;
 }
+.logo-work-title {
+  font-size: 1rem;
+  letter-spacing: -0.0875em;
+  font-weight: 200;
+}
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.8rem;
+  }
+}
+
 .logo-fullname {
   color: inherit;
 }
