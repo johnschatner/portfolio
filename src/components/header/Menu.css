@@ -1,24 +1,30 @@
 .main-menu {
-  position: absolute;
-  top: 12rem;
+  margin-top: 2rem;
+  margin-left: 6px;
 }
 .main-menu ul {
+  display: flex;
+  flex-direction: column;
   list-style: none;
-  margin-left: 4px;
+  margin: 0;
   padding: 0;
 }
-.main-menu li:not(.menu-circle) {
+.main-menu li {
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+}
+.main-menu a {
   transition: 150ms ease-in-out;
-  margin-bottom: 0.75rem;
   font-size: 0.875rem;
   font-weight: 600;
 }
-.main-menu li:hover:not(.menu-circle) {
+.main-menu a:hover {
   opacity: 0.4;
 }
-.menu-circle div {
+
+.menu-circle {
   height: 7px;
   width: 7px;
-  border-radius: 2px;
-  margin-bottom: 1rem;
+  border-radius: 7px;
 }

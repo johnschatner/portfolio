@@ -12,7 +12,7 @@ body.dark svg {
 body.dark a {
   color: var(--primary-color-light);
 }
-body.dark .menu-circle div {
+body.dark .menu-circle {
   background-color: var(--primary-color-light);
 }
 body.dark p {
@@ -28,7 +28,7 @@ body.light div {
 body.light a {
   color: var(--primary-color-dark);
 }
-body.light .menu-circle div {
+body.light .menu-circle {
   background-color: var(--primary-color-dark);
 }
 body.light span {

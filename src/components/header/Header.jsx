@@ -13,7 +13,6 @@ function Header() {
       <div className="header-container">
         <div className="left-section">
           <Logo />
-          <Menu />
         </div>
         <div className="right-section">
           <ul>
@@ -31,6 +30,7 @@ function Header() {
           </ul>
         </div>
       </div>
+      <Menu />
     </header>
   );
 }

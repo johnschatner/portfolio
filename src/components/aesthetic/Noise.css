@@ -6,9 +6,10 @@
   width: 600%;
   height: 600%;
   background-image: url(/src/assets/noise.png);
-  background-size: 250px;
+  background-size: 350px;
   background-repeat: repeat;
   animation: bg-animation 7s steps(10) infinite;
+  filter: invert(1);
   opacity: 0.7;
   visibility: visible;
   pointer-events: none;
