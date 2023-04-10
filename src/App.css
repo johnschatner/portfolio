@@ -5,11 +5,22 @@
 }
 
 :root {
+  --app-height: 100%;
   --color: white;
   --primary-color-white: #f7f7f7;
   --primary-color-light: #ffffff;
   --primary-color-dark: #595959;
   --primary-color-black: #080808;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  height: var(--app-height);
 }
 
 .visually-hidden {
