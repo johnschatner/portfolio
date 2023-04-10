@@ -7,18 +7,19 @@ import { PortfolioContext } from "../main/PortfolioContext";
 const ParticleSystem = () => {
   const particles = useRef();
   const particleCountDesktop = 10500;
-  const particleCountMobile = 5100;
+  const particleCountMobile = 1900;
   const [count, setCount] = useState(() => {
     const screenWidth = window.innerWidth;
-    return screenWidth <= 1000 ? particleCountDesktop : particleCountMobile;
+    return screenWidth <= 1000 ? particleCountMobile : particleCountDesktop;
   });
 
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
       setCount(
-        screenWidth <= 1000 ? particleCountDesktop : particleCountMobile
+        screenWidth <= 1000 ? particleCountMobile : particleCountDesktop
       );
+      console.log(count);
     };
 
     window.addEventListener("resize", handleResize);
@@ -26,10 +27,25 @@ const ParticleSystem = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [count]);
 
   const particleSpacing = 1;
-  const gridSize = Math.sqrt(count * 1.31);
+  const initUpdatePositions = (viewport, pixelRatio) => {
+    const width = (viewport.width / pixelRatio) * particleSpacing;
+    const height = (viewport.height / pixelRatio) * particleSpacing;
+
+    for (let i = 0, idx = 0; i < gridSize; i++) {
+      for (let j = 0; j < gridSize; j++, idx += 3) {
+        if (idx / 3 < count) {
+          positions.current[idx] = (i / (gridSize - 2)) * width - width / 2;
+          positions.current[idx + 1] =
+            (j / (gridSize - 1)) * height - height / 2;
+          positions.current[idx + 2] = 0;
+        }
+      }
+    }
+  };
+  const gridSize = useMemo(() => Math.sqrt(count * 1.31), [count]);
   const {
     THEME,
     targetOpacity,
@@ -74,24 +90,10 @@ const ParticleSystem = () => {
   const positions = useRef(new Float32Array(count * 3));
 
   useEffect(() => {
-    const updatePositions = () => {
-      const width = (viewport.width / pixelRatio) * particleSpacing;
-      const height = (viewport.height / pixelRatio) * particleSpacing;
-
-      for (let i = 0, idx = 0; i < gridSize; i++) {
-        for (let j = 0; j < gridSize; j++, idx += 3) {
-          positions.current[idx] = (i / (gridSize - 2)) * width - width / 2;
-          positions.current[idx + 1] =
-            (j / (gridSize - 1)) * height - height / 2;
-          positions.current[idx + 2] = 0;
-        }
-      }
-    };
-
-    updatePositions();
+    initUpdatePositions(viewport, pixelRatio);
 
     const handleResize = () => {
-      updatePositions();
+      initUpdatePositions(viewport, pixelRatio);
     };
 
     window.addEventListener("resize", handleResize);
