@@ -316,7 +316,7 @@ const Particles = () => {
   const updateCameraPosition = () => {
     if (cameraRef.current) {
       const screenWidth = window.innerWidth;
-      const cameraZPosition = screenWidth <= 1000 ? 30 : 14;
+      const cameraZPosition = screenWidth <= 1000 ? 7 : 14;
       console.log(cameraZPosition);
       cameraRef.current.position.set(0, 0, cameraZPosition);
       cameraRef.current.aspect = screenWidth / window.innerHeight;
