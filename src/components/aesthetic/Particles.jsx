@@ -7,11 +7,15 @@ import { PortfolioContext } from "../main/PortfolioContext";
 const ParticleSystem = () => {
   const particles = useRef();
   const particleCountDesktop = 10500;
-  const particleCountMobile = 1900;
+  const particleCountMobile = 4000;
   const [count, setCount] = useState(() => {
     const screenWidth = window.innerWidth;
     return screenWidth <= 1000 ? particleCountMobile : particleCountDesktop;
   });
+  const { viewport } = useThree();
+  const [particleSpacing, setParticleSpacing] = useState(
+    window.innerWidth > 1000 ? 1 : 3
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,7 +23,9 @@ const ParticleSystem = () => {
       setCount(
         screenWidth <= 1000 ? particleCountMobile : particleCountDesktop
       );
+      setParticleSpacing(screenWidth <= 1000 ? 3 : 1);
       console.log(count);
+      console.log(particleSpacing);
     };
 
     window.addEventListener("resize", handleResize);
@@ -29,7 +35,6 @@ const ParticleSystem = () => {
     };
   }, [count]);
 
-  const particleSpacing = 1;
   const initUpdatePositions = (viewport, pixelRatio) => {
     const width = (viewport.width / pixelRatio) * particleSpacing;
     const height = (viewport.height / pixelRatio) * particleSpacing;
@@ -84,7 +89,6 @@ const ParticleSystem = () => {
     }
   }, [particleColor]);
 
-  const { viewport } = useThree();
   const pixelRatio = window.devicePixelRatio;
 
   const positions = useRef(new Float32Array(count * 3));
@@ -316,7 +320,7 @@ const Particles = () => {
   const updateCameraPosition = () => {
     if (cameraRef.current) {
       const screenWidth = window.innerWidth;
-      const cameraZPosition = screenWidth <= 1000 ? 7 : 14;
+      const cameraZPosition = screenWidth <= 1000 ? 30 : 14;
       console.log(cameraZPosition);
       cameraRef.current.position.set(0, 0, cameraZPosition);
       cameraRef.current.aspect = screenWidth / window.innerHeight;
