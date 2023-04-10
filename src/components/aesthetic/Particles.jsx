@@ -14,7 +14,10 @@ const ParticleSystem = () => {
   });
   const { viewport } = useThree();
   const [particleSpacing, setParticleSpacing] = useState(
-    window.innerWidth > 1000 ? 1 : 3
+    window.innerWidth <= 1000 ? 3 : 1
+  );
+  const [speedMultiplier, setSpeedMultiplier] = useState(
+    window.innerWidth <= 1000 ? 0.5 : 0.15
   );
 
   useEffect(() => {
@@ -24,6 +27,7 @@ const ParticleSystem = () => {
         screenWidth <= 1000 ? particleCountMobile : particleCountDesktop
       );
       setParticleSpacing(screenWidth <= 1000 ? 3 : 1);
+      setSpeedMultiplier(screenWidth <= 1000 ? 0.3 : 0.15);
       console.log(count);
       console.log(particleSpacing);
     };
@@ -204,7 +208,7 @@ const ParticleSystem = () => {
   }
 
   useFrame((state) => {
-    const time = state.clock.getElapsedTime() * 0.15;
+    const time = state.clock.getElapsedTime() * speedMultiplier;
     const { width, height } = state.viewport;
     const opacityTransitionSpeed = 0.015;
 
