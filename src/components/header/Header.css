@@ -29,13 +29,17 @@
   align-items: center;
 }
 
-header .header-container ul {
+header .right-section ul {
   list-style: none;
   display: flex;
+  align-content: center;
+  flex-wrap: wrap;
   align-items: center;
   margin: 0;
   padding: 0;
 }
-header .header-container li {
+
+header .right-section li {
   margin-left: 1rem;
+  line-height: 0;
 }

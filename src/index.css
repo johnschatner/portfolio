@@ -54,8 +54,8 @@ button {
 
 .ionicon {
   display: inline-block;
-  width: 2em;
-  height: 2em;
+  width: 1.6em;
+  height: 1.6em;
   contain: strict;
   fill: currentcolor;
   box-sizing: content-box !important;

@@ -4,27 +4,26 @@ import "./Header.css";
 import Hamburger from "./Hamburger";
 import ThemeSelector from "./ThemeSelector";
 import Logo from "./Logo";
+import LanguageSelector from "./LanguageSelector";
 
 function Header() {
   return (
     <header>
       <div className="header-container">
         <div className="left-section">
-          <Logo></Logo>
+          <Logo />
         </div>
         <div className="right-section">
           <ul>
-            <li className="language-selector">
-              <a href="#">
-                <span>EN</span>
-              </a>
+            <li>
+              <LanguageSelector />
             </li>
             <li className="theme-selector">
-              <ThemeSelector></ThemeSelector>
+              <ThemeSelector />
             </li>
             <li>
               <button className="hamburger-btn" aria-label="Open menu">
-                <Hamburger></Hamburger>
+                <Hamburger />
               </button>
             </li>
           </ul>
