@@ -6,12 +6,32 @@ import { PortfolioContext } from "../main/PortfolioContext";
 
 const ParticleSystem = () => {
   const particles = useRef();
-  const count = 10500; // Number of particles
+  const particleCountDesktop = 10500;
+  const particleCountMobile = 5100;
+  const [count, setCount] = useState(() => {
+    const screenWidth = window.innerWidth;
+    return screenWidth <= 1000 ? particleCountDesktop : particleCountMobile;
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      setCount(
+        screenWidth <= 1000 ? particleCountDesktop : particleCountMobile
+      );
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const particleSpacing = 1;
   const gridSize = Math.sqrt(count * 1.31);
   const {
     THEME,
-    BACKGROUND,
     targetOpacity,
     currentOpacity,
     setCurrentOpacity,
@@ -289,20 +309,37 @@ const Particles = () => {
       document.body.removeChild(stats.dom);
     };
   }, []);
+  const cameraRef = useRef();
+
+  const updateCameraPosition = () => {
+    if (cameraRef.current) {
+      const screenWidth = window.innerWidth;
+      const cameraZPosition = screenWidth <= 1000 ? 30 : 14;
+      console.log(cameraZPosition);
+      cameraRef.current.position.set(0, 0, cameraZPosition);
+      cameraRef.current.aspect = screenWidth / window.innerHeight;
+      cameraRef.current.updateProjectionMatrix();
+    }
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      updateCameraPosition();
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
       <Canvas
         style={{ position: "absolute", top: 0, left: 0 }}
-        camera={{ position: [0, 0, 14], fov: 75 }}
-        onCreated={({ gl }) => {
+        camera={{ fov: 75 }}
+        onCreated={({ gl, camera }) => {
+          cameraRef.current = camera;
           gl.setPixelRatio(window.devicePixelRatio);
           gl.setSize(window.innerWidth, window.innerHeight);
-        }}
-        onResize={({ gl, camera }) => {
-          gl.setSize(window.innerWidth, window.innerHeight);
-          camera.aspect = window.innerWidth / window.innerHeight;
-          camera.updateProjectionMatrix();
+          updateCameraPosition();
         }}
       >
         <ambientLight />
