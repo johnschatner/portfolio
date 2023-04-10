@@ -26,11 +26,14 @@
 }
 
 @media (max-width: 768px) {
+  body {
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
   .site-wrapper {
     padding: 1rem;
   }
   .site-border {
-    height: calc(100vh - 2rem);
     width: calc(100vw - 2rem);
     padding: 1rem;
   }
