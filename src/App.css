@@ -6,8 +6,10 @@
 
 :root {
   --color: white;
+  --primary-color-white: #f7f7f7;
   --primary-color-light: #ffffff;
   --primary-color-dark: #595959;
+  --primary-color-black: #080808;
 }
 
 .visually-hidden {

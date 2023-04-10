@@ -6,9 +6,9 @@ import { PortfolioContext } from "../main/PortfolioContext";
 
 const ParticleSystem = () => {
   const particles = useRef();
-  const count = 5900; // Number of particles
+  const count = 15900; // Number of particles
   const particleSpacing = 1;
-  const gridSize = Math.sqrt(count * 1.39);
+  const gridSize = Math.sqrt(count * 1.31);
   const {
     THEME,
     BACKGROUND,

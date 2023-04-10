@@ -7,8 +7,10 @@ function LandingBanner() {
       <div className="landing-banner-container">
         <div className="landing-banner-content">
           <p>
-            I'm a frontend developer from Sweden. I'm currently working as a
-            frontend developer at <Link to="/cv">CV</Link>.
+            Born in 2001 in Helsingborg, Sweden. I believe web development holds
+            endless potential and creativity. Driven by a desire to explore the
+            vast possibilities of web development, I strive for innovative
+            solutions by embracing experimentation and deep reflection.
           </p>
         </div>
       </div>

@@ -1,0 +1,24 @@
+.main-menu {
+  position: absolute;
+  top: 12rem;
+}
+.main-menu ul {
+  list-style: none;
+  margin-left: 4px;
+  padding: 0;
+}
+.main-menu li:not(.menu-circle) {
+  transition: 150ms ease-in-out;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.main-menu li:hover:not(.menu-circle) {
+  opacity: 0.4;
+}
+.menu-circle div {
+  height: 7px;
+  width: 7px;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}

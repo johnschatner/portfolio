@@ -3,22 +3,39 @@ body.dark {
   /* background-color: #313338; */
   background-color: #000;
 }
+body.dark div {
+  color: var(--primary-color-light);
+}
 body.dark svg {
   color: #fff;
 }
 body.dark a {
   color: var(--primary-color-light);
 }
+body.dark .menu-circle div {
+  background-color: var(--primary-color-light);
+}
+body.dark p {
+  color: var(--primary-color-white);
+}
 /*Light theme*/
 body.light {
   background-color: #e3e3e3;
 }
+body.light div {
+  color: var(--primary-color-dark);
+}
 body.light a {
   color: var(--primary-color-dark);
 }
-body.light span,
-body.light p {
+body.light .menu-circle div {
+  background-color: var(--primary-color-dark);
+}
+body.light span {
   color: var(--primary-color-dark);
+}
+body.light p {
+  color: var(--primary-color-black);
 }
 
 /*Sitewide SVG effects*/

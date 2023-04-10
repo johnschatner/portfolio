@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "animejs": "^3.2.1",
+    "framer-motion": "^10.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
+    "react-spring": "^9.7.1",
     "react-three-fiber": "^6.0.13",
+    "react-transition-group": "^4.4.5",
     "stats.js": "^0.17.0",
     "three": "^0.151.3"
   },

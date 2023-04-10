@@ -1,21 +1,14 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 // Components
-import Header from "../components/header/Header";
 import SiteWrapper from "../components/main/SiteWrapper";
-
-// Pages
-import HomePage from "./HomePage";
-import CVPage from "./CVPage";
+import AnimatedRoutes from "./AnimatedRoutes";
 
 function PortfolioRouter() {
   return (
     <BrowserRouter>
       <SiteWrapper>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/cv" element={<CVPage />} />
-        </Routes>
+        <AnimatedRoutes></AnimatedRoutes>
       </SiteWrapper>
     </BrowserRouter>
   );

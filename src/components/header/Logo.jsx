@@ -1,7 +1,7 @@
 import "./Logo.css";
 import { Fragment, useContext } from "react";
-import { Link } from "react-router-dom";
 import { PortfolioContext } from "../main/PortfolioContext";
+import { Link } from "react-router-dom";
 
 function Logo() {
   const { doHoverEffect } = useContext(PortfolioContext);

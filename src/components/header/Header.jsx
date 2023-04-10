@@ -5,6 +5,7 @@ import Hamburger from "./Hamburger";
 import ThemeSelector from "./ThemeSelector";
 import Logo from "./Logo";
 import LanguageSelector from "./LanguageSelector";
+import Menu from "./Menu";
 
 function Header() {
   return (
@@ -12,6 +13,7 @@ function Header() {
       <div className="header-container">
         <div className="left-section">
           <Logo />
+          <Menu />
         </div>
         <div className="right-section">
           <ul>
@@ -21,11 +23,11 @@ function Header() {
             <li className="theme-selector">
               <ThemeSelector />
             </li>
-            <li>
+            {/* <li>
               <button className="hamburger-btn" aria-label="Open menu">
                 <Hamburger />
               </button>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
