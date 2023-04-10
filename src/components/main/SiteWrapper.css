@@ -1,14 +1,12 @@
 .site-wrapper {
   position: fixed;
+  z-index: 999;
 
   padding: 2rem;
 
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
-
-  z-index: 999;
 }
 
 .site-border {
@@ -25,4 +23,15 @@
   max-width: 190px;
   right: 0;
   bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .site-wrapper {
+    padding: 1rem;
+  }
+  .site-border {
+    height: calc(100vh - 2rem);
+    width: calc(100vw - 2rem);
+    padding: 1rem;
+  }
 }
