@@ -5,7 +5,6 @@
 }
 
 :root {
-  --app-height: 100%;
   --color: white;
   --primary-color-white: #f7f7f7;
   --primary-color-light: #ffffff;
@@ -17,10 +16,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  height: var(--app-height);
+  width: 100%;
+  height: 100%;
 }
 
 .visually-hidden {
