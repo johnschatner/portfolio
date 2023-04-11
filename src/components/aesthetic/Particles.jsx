@@ -4,6 +4,18 @@ import * as THREE from "three";
 import Stats from "stats.js";
 import { PortfolioContext } from "../main/PortfolioContext";
 
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
 const ParticleSystem = () => {
   const particles = useRef();
   const particleCountDesktop = 10500;
@@ -21,7 +33,7 @@ const ParticleSystem = () => {
   );
 
   useEffect(() => {
-    const handleResize = () => {
+    const handleResize = debounce(() => {
       const screenWidth = window.innerWidth;
       setCount(
         screenWidth <= 1000 ? particleCountMobile : particleCountDesktop
@@ -30,7 +42,7 @@ const ParticleSystem = () => {
       setSpeedMultiplier(screenWidth <= 1000 ? 0.3 : 0.15);
       console.log(count);
       console.log(particleSpacing);
-    };
+    }, 100);
 
     window.addEventListener("resize", handleResize);
 
@@ -100,9 +112,9 @@ const ParticleSystem = () => {
   useEffect(() => {
     initUpdatePositions(viewport, pixelRatio);
 
-    const handleResize = () => {
+    const handleResize = debounce(() => {
       initUpdatePositions(viewport, pixelRatio);
-    };
+    }, 100);
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -333,9 +345,10 @@ const Particles = () => {
   };
 
   useEffect(() => {
-    const handleResize = () => {
+    const handleResize = debounce(() => {
       updateCameraPosition();
-    };
+    }, 100);
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
