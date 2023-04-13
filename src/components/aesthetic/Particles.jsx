@@ -255,8 +255,8 @@ const ParticleSystem = () => {
 
     for (let i = 0, idx = 0; i < gridSize; i++) {
       for (let j = 0; j < gridSize; j++, idx += 3) {
-        particles.current.geometry.attributes.position.array[idx + 1] =
-          positions.current[idx + 1];
+        particles.current.geometry.attributes.position.array[idx] =
+          positions.current[idx];
         particles.current.geometry.attributes.position.array[idx + 3] =
           positions.current[idx + 3];
 
@@ -276,7 +276,7 @@ const ParticleSystem = () => {
         const waveHeight = (wave1 + wave2 + wave3) * -0.05;
 
         if (!isHovering) {
-          particles.current.geometry.attributes.position.array[idx + 1] =
+          particles.current.geometry.attributes.position.array[idx + 3] =
             waveHeight * -3;
         }
 
