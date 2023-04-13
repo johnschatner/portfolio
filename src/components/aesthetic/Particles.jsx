@@ -17,6 +17,7 @@ const debounce = (func, wait) => {
 };
 
 const ParticleSystem = () => {
+  const [initialOpacity, setInitialOpacity] = useState(0);
   const particles = useRef();
   const particleCountDesktop = 10500;
   const particleCountMobile = 4000;
@@ -219,7 +220,16 @@ const ParticleSystem = () => {
     );
   }
 
+  const easeOpacityOnLoad = () => {
+    const targetOpacity = 1;
+    const opacityTransitionSpeed = 0.01;
+    const opacityDiff = targetOpacity - initialOpacity;
+    const opacityDelta = Math.min(opacityDiff, opacityTransitionSpeed);
+    setInitialOpacity(initialOpacity + opacityDelta);
+  };
+
   useFrame((state) => {
+    easeOpacityOnLoad();
     const time = state.clock.getElapsedTime() * speedMultiplier;
     const { width, height } = state.viewport;
     const opacityTransitionSpeed = 0.015;
@@ -294,7 +304,7 @@ const ParticleSystem = () => {
           waveHeight < 0 ? (THEME === "dark" ? 0.1 : 0.3) : waveHeight * 0.7;
 
         particles.current.geometry.attributes.opacity.array[idx / 3] =
-          opacity * newCurrentOpacity[idx / 3];
+          opacity * newCurrentOpacity[idx / 3] * initialOpacity;
       }
     }
 
