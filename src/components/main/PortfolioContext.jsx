@@ -17,7 +17,8 @@ export const PortfolioContextProvider = (props) => {
 
   const doHoverEffect = (e) => {
     const newOpacity =
-      e.type === "mouseenter" ? (THEME === "dark" ? 0.7 : 0.8) : 1;
+      e.type === "mouseenter" ? (THEME === "dark" ? 1 : 0.8) : 1;
+
     setTargetOpacity(targetOpacity.map(() => newOpacity));
 
     if (e.type === "mouseenter") {
@@ -32,7 +33,7 @@ export const PortfolioContextProvider = (props) => {
         const z = radius * Math.cos(phi);
         spherePositions.push({ x, y, z });
       }
-      setTargetWavePositions(spherePositions);
+      setTargetWavePositions([...spherePositions]);
     } else {
       setIsHovering(false);
       setBACKGROUND(1);
