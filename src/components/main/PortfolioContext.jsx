@@ -5,7 +5,7 @@ export const PortfolioContext = createContext(null);
 export const PortfolioContextProvider = (props) => {
   const [THEME, setTHEME] = useState("dark");
   const [BACKGROUND, setBACKGROUND] = useState(1);
-  const count = 22100; // Number of particles
+  const count = 12000; // Number of particles
   const [targetOpacity, setTargetOpacity] = useState(
     new Float32Array(count).fill(1)
   );
@@ -16,24 +16,12 @@ export const PortfolioContextProvider = (props) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const doHoverEffect = (e) => {
-    const newOpacity =
-      e.type === "mouseenter" ? (THEME === "dark" ? 1 : 0.8) : 1;
+    const newOpacity = e.type === "mouseenter" ? (THEME === "dark" ? 4 : 2) : 1;
 
     setTargetOpacity(targetOpacity.map(() => newOpacity));
 
     if (e.type === "mouseenter") {
       setIsHovering(true);
-      const spherePositions = [];
-      const radius = 30;
-      for (let i = 0; i < count; i++) {
-        const phi = Math.acos(-1 + (2 * i) / count);
-        const theta = Math.sqrt(count * Math.PI) * phi;
-        const x = radius * Math.cos(theta) * Math.sin(phi);
-        const y = radius * Math.sin(theta) * Math.sin(phi);
-        const z = radius * Math.cos(phi);
-        spherePositions.push({ x, y, z });
-      }
-      setTargetWavePositions([...spherePositions]);
     } else {
       setIsHovering(false);
       setBACKGROUND(1);
