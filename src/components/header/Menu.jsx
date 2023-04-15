@@ -20,8 +20,8 @@ function Menu() {
           </MenuItem>
         </li>
         <li>
-          <MenuItem to={"/cv"} active={location.pathname === "/cv"}>
-            Curriculum Vitae
+          <MenuItem to={"/about"} active={location.pathname === "/about"}>
+            About
           </MenuItem>
         </li>
         <li>

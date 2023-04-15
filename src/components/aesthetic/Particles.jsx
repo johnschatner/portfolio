@@ -222,7 +222,7 @@ const ParticleSystem = () => {
 
   const easeOpacityOnLoad = () => {
     const targetOpacity = 1;
-    const opacityTransitionSpeed = 0.00875;
+    const opacityTransitionSpeed = 0.0005;
     const opacityDiff = targetOpacity - initialOpacity;
     const opacityDelta = Math.min(opacityDiff, opacityTransitionSpeed);
     setInitialOpacity(initialOpacity + opacityDelta);
@@ -255,7 +255,7 @@ const ParticleSystem = () => {
 
     for (let i = 0, idx = 0; i < gridSize; i++) {
       for (let j = 0; j < gridSize; j++, idx += 3) {
-        particles.current.geometry.attributes.position.array[idx] =
+        particles.current.geometry.attributes.position.array[idx + 4] =
           positions.current[idx];
         particles.current.geometry.attributes.position.array[idx + 3] =
           positions.current[idx + 3];
@@ -275,11 +275,6 @@ const ParticleSystem = () => {
 
         const waveHeight = (wave1 + wave2 + wave3) * -0.05;
 
-        if (!isHovering) {
-          particles.current.geometry.attributes.position.array[idx + 3] =
-            waveHeight * -3;
-        }
-
         const hoverWave1 =
           randomAmplitudes.current[idx / 3] *
           Math.sin(time + x * 0.1) *
@@ -297,11 +292,14 @@ const ParticleSystem = () => {
         // Interpolate between the original wave height and the new wave height when hovering using the eased progress
         const finalWaveHeight =
           (1 - easedProgress) * waveHeight + easedProgress * hoverWaveHeight;
+
+        // -5, -8, -10, -20 & -30 are notable effects
+        // Changing the number here changes how close we get to the new animation
         particles.current.geometry.attributes.position.array[idx + 3] =
-          finalWaveHeight * -8;
+          finalWaveHeight * -12;
 
         const opacity =
-          waveHeight < 0 ? (THEME === "dark" ? 0.1 : 0.3) : waveHeight * 0.7;
+          waveHeight < 0 ? (THEME === "dark" ? 0.1 : 0.3) : waveHeight * 1;
 
         particles.current.geometry.attributes.opacity.array[idx / 3] =
           opacity * newCurrentOpacity[idx / 3] * initialOpacity;

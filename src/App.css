@@ -20,6 +20,26 @@ body {
   height: 100%;
 }
 
+.jk-sublink {
+  pointer-events: none;
+  font-size: 1rem;
+  font-weight: 300;
+  opacity: 0.75;
+}
+.jk-link {
+  font-weight: 500;
+  opacity: 0.8;
+  transition: 150ms ease-in-out;
+}
+.jk-link:hover {
+  opacity: 1;
+}
+.jk-link::after {
+  content: "↗";
+  font-weight: 700;
+  margin-left: 0.25rem;
+}
+
 .visually-hidden {
   border: 0;
   padding: 0;

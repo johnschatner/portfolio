@@ -1,6 +1,7 @@
 .site-wrapper {
   position: absolute;
   z-index: 999;
+  overflow: hidden;
 
   padding: 2rem;
 
@@ -13,23 +14,27 @@
 .site-border {
   height: 100%;
   position: relative;
-  padding: 2rem;
+  padding: 3rem;
   border: 1px solid #808080;
 }
 
 .site-content {
   position: absolute;
-  padding: 2rem;
-  max-width: 190px;
+  z-index: 0;
+  padding: 0 4rem 5rem 0;
   right: 0;
   bottom: 0;
 }
 
 @media (max-width: 768px) {
   .site-wrapper {
-    padding: 1rem;
+    padding: 1.35rem;
   }
   .site-border {
-    padding: 1rem;
+    padding: 1.35rem;
+    position: static;
+  }
+  .site-content {
+    padding: 0 2rem 0 0;
   }
 }

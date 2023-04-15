@@ -1,5 +1,5 @@
 .noise {
-  position: fixed;
+  position: absolute;
   z-index: 9000;
   top: -300%;
   left: -150%;

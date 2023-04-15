@@ -1,0 +1,93 @@
+/*Container for every project*/
+.list-projects {
+  height: 100%;
+  overflow-y: scroll;
+}
+.list-projects::-webkit-scrollbar {
+  display: none;
+}
+.list-projects {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.list-projects-inner {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.list-projects a {
+  line-height: 1.75rem;
+  width: fit-content;
+  margin-left: auto;
+}
+
+/*Individual Projects*/
+.project-container {
+  display: flex;
+}
+
+.project-content {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.project-content {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.project-container .project-title,
+.project-container .project-description > span {
+  transition: 150ms ease-in-out;
+}
+.project-content:hover .project-title,
+.project-content:hover .project-description > span {
+  opacity: 0.5;
+}
+
+.project-title {
+  line-height: 100%;
+  font-size: 3.75rem;
+  font-weight: 100;
+  letter-spacing: -0.01em;
+}
+
+.project-description > span {
+  font-weight: 700;
+  opacity: 0.7;
+}
+.project-description > span:not(:last-child)::after {
+  content: " / ";
+}
+
+/*Make it responsive*/
+@media (max-width: 1260px) {
+  .list-projects {
+    height: calc(100vh - 12.5rem);
+  }
+  .project-content {
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+  .project-title {
+    order: 1;
+    white-space: nowrap;
+    font-size: 1.75rem;
+    font-weight: 300;
+  }
+  .project-description {
+    order: 2;
+  }
+  .project-description > span {
+    font-size: 0.975rem;
+    font-weight: 700;
+  }
+}
+@media (min-height: 868px) {
+  .list-projects {
+    height: 100%;
+  }
+}

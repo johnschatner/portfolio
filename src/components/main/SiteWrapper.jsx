@@ -1,14 +1,17 @@
 // SiteWrapper.jsx
 import "./SiteWrapper.css";
-import Header from "../header/Header";
-import ThreeJS from "../aesthetic/ThreeJS";
 import { PortfolioContextProvider } from "./PortfolioContext";
 import AnimatedRoutes from "../../Pages/AnimatedRoutes";
+
+import Header from "../header/Header";
+import ThreeJS from "../aesthetic/ThreeJS";
+import Noise from "../aesthetic/Noise";
 
 function SiteWrapper() {
   return (
     <div className="site-wrapper">
       <div className="site-border">
+        <Noise />
         <PortfolioContextProvider>
           <Header></Header>
           <ThreeJS></ThreeJS>

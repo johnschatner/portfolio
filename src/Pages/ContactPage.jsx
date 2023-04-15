@@ -8,7 +8,14 @@ function ContactPage() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <span>ContactPage</span>
+      <div className="jk-sublink">Get in touch via</div>
+      <a
+        className="jk-link"
+        target="_blank"
+        href="https://www.linkedin.com/in/isac-rasmusson/"
+      >
+        LinkedIn
+      </a>
     </motion.div>
   );
 }

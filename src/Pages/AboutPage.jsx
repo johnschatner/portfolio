@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function CVPage() {
+function AboutPage() {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -8,9 +8,9 @@ function CVPage() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <span>CV</span>
+      <span>About</span>
     </motion.div>
   );
 }
 
-export default CVPage;
+export default AboutPage;
