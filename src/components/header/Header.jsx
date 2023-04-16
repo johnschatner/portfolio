@@ -15,9 +15,9 @@ function Header() {
         </div>
         <div className="right-section">
           <ul>
-            <li>
+            {/* <li>
               <LanguageSelector />
-            </li>
+            </li> */}
             <li className="theme-selector">
               <ThemeSelector />
             </li>
