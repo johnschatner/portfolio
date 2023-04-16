@@ -322,23 +322,23 @@ const ParticleSystem = () => {
 };
 
 const Particles = () => {
-  useEffect(() => {
-    const stats = new Stats();
-    stats.showPanel(0); // Show FPS panel (0: fps, 1: ms, 2: mb, 3+: custom)
-    document.body.appendChild(stats.dom);
+  // useEffect(() => {
+  //   const stats = new Stats();
+  //   stats.showPanel(0); // Show FPS panel (0: fps, 1: ms, 2: mb, 3+: custom)
+  //   document.body.appendChild(stats.dom);
 
-    const animate = () => {
-      stats.begin();
-      stats.end();
-      requestAnimationFrame(animate);
-    };
+  //   const animate = () => {
+  //     stats.begin();
+  //     stats.end();
+  //     requestAnimationFrame(animate);
+  //   };
 
-    requestAnimationFrame(animate);
+  //   requestAnimationFrame(animate);
 
-    return () => {
-      document.body.removeChild(stats.dom);
-    };
-  }, []);
+  //   return () => {
+  //     document.body.removeChild(stats.dom);
+  //   };
+  // }, []);
   const cameraRef = useRef();
 
   const updateCameraPosition = () => {
