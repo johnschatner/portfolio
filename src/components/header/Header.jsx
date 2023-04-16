@@ -1,7 +1,6 @@
 import "./Header.css";
 
 // Components
-import Hamburger from "./Hamburger";
 import ThemeSelector from "./ThemeSelector";
 import Logo from "./Logo";
 import LanguageSelector from "./LanguageSelector";

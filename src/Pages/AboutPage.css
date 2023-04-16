@@ -1,0 +1,30 @@
+.about-page {
+  margin-left: auto;
+  text-align: end;
+}
+
+.made-with-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.library-title {
+  font-size: 2.5rem;
+  font-weight: 200;
+  letter-spacing: -0.01em;
+  line-height: 100%;
+  margin-bottom: 1rem;
+}
+
+.library-desc {
+  max-width: 45%;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 0 0.5rem 3rem 0;
+  }
+}

@@ -10,7 +10,8 @@ import Noise from "../aesthetic/Noise";
 function SiteWrapper() {
   return (
     <div className="site-wrapper">
-      <div className="site-border">
+      <div className="site-border"></div>
+      <div className="site-inner-wrapper">
         <Noise />
         <PortfolioContextProvider>
           <Header></Header>

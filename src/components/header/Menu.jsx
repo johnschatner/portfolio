@@ -1,6 +1,5 @@
 import "./Menu.css";
-import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import MenuItem from "./MenuItem";
 
 function Menu() {
@@ -21,7 +20,7 @@ function Menu() {
         </li>
         <li>
           <MenuItem to={"/about"} active={location.pathname === "/about"}>
-            About
+            Made with
           </MenuItem>
         </li>
         <li>

@@ -11,26 +11,39 @@
   width: 100%;
 }
 
-.site-border {
+.site-inner-wrapper {
   height: 100%;
   position: relative;
   padding: 3rem;
-  border: 1px solid #808080;
 }
 
 .site-content {
   position: absolute;
-  z-index: 0;
+  z-index: 10;
   padding: 0 4rem 5rem 0;
   right: 0;
   bottom: 0;
+}
+
+.site-border {
+  pointer-events: none;
+  position: absolute;
+  z-index: 50;
+
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+
+  outline: 1px solid #808080;
+  outline-offset: -2rem;
 }
 
 @media (max-width: 768px) {
   .site-wrapper {
     padding: 1.35rem;
   }
-  .site-border {
+  .site-inner-wrapper {
     padding: 1.35rem;
     position: static;
   }
