@@ -17,7 +17,6 @@ const debounce = (func, wait) => {
 };
 
 const ParticleSystem = () => {
-  const [initialOpacity, setInitialOpacity] = useState(0);
   const particles = useRef();
   const particleCountDesktop = 10500;
   const particleCountMobile = 4000;
@@ -220,19 +219,10 @@ const ParticleSystem = () => {
     );
   }
 
-  const easeOpacityOnLoad = () => {
-    const targetOpacity = 1;
-    const opacityTransitionSpeed = 0.0005;
-    const opacityDiff = targetOpacity - initialOpacity;
-    const opacityDelta = Math.min(opacityDiff, opacityTransitionSpeed);
-    setInitialOpacity(initialOpacity + opacityDelta);
-  };
-
   useFrame((state) => {
-    easeOpacityOnLoad();
     const time = state.clock.getElapsedTime() * speedMultiplier;
     const { width, height } = state.viewport;
-    const opacityTransitionSpeed = 0.0375;
+    const opacityTransitionSpeed = 0.075;
 
     // Update the transitionProgress based on the hovering status
     const newTransitionProgress = isHovering
@@ -255,10 +245,10 @@ const ParticleSystem = () => {
 
     for (let i = 0, idx = 0; i < gridSize; i++) {
       for (let j = 0; j < gridSize; j++, idx += 3) {
-        particles.current.geometry.attributes.position.array[idx + 4] =
+        particles.current.geometry.attributes.position.array[idx] =
           positions.current[idx];
-        particles.current.geometry.attributes.position.array[idx + 3] =
-          positions.current[idx + 3];
+        particles.current.geometry.attributes.position.array[idx + 2] =
+          positions.current[idx + 1];
 
         const x = particles.current.geometry.attributes.position.array[idx];
         const y = particles.current.geometry.attributes.position.array[idx + 1];
@@ -273,7 +263,12 @@ const ParticleSystem = () => {
           Math.sin(time * 0.75 + x * 0.75) *
           Math.cos(time * 0.75 + y * 0.75);
 
-        const waveHeight = (wave1 + wave2 + wave3) * -0.05;
+        const waveHeight = (wave1 + wave2 + wave3) * 0.2;
+
+        if (!isHovering) {
+          particles.current.geometry.attributes.position.array[idx + 2] =
+            waveHeight * -3;
+        }
 
         const hoverWave1 =
           randomAmplitudes.current[idx / 3] *
@@ -287,22 +282,19 @@ const ParticleSystem = () => {
           randomAmplitudes.current[idx / 3] *
           Math.sin(time * 0.75 + x * 0.75) *
           Math.cos(time * 0.75 + y * 0.75);
-        const hoverWaveHeight = (hoverWave1 + hoverWave2 + hoverWave3) * -0.075;
+        const hoverWaveHeight = (hoverWave1 + hoverWave2 + hoverWave3) * 0.2;
 
         // Interpolate between the original wave height and the new wave height when hovering using the eased progress
         const finalWaveHeight =
           (1 - easedProgress) * waveHeight + easedProgress * hoverWaveHeight;
-
-        // -5, -8, -10, -20 & -30 are notable effects
-        // Changing the number here changes how close we get to the new animation
-        particles.current.geometry.attributes.position.array[idx + 3] =
-          finalWaveHeight * -12;
+        particles.current.geometry.attributes.position.array[idx + 2] =
+          finalWaveHeight * -2;
 
         const opacity =
-          waveHeight < 0 ? (THEME === "dark" ? 0.1 : 0.3) : waveHeight * 1;
+          waveHeight < 0 ? (THEME === "dark" ? 0.1 : 0.3) : waveHeight * 0.5;
 
         particles.current.geometry.attributes.opacity.array[idx / 3] =
-          opacity * newCurrentOpacity[idx / 3] * initialOpacity;
+          opacity * newCurrentOpacity[idx / 3];
       }
     }
 
@@ -322,23 +314,23 @@ const ParticleSystem = () => {
 };
 
 const Particles = () => {
-  // useEffect(() => {
-  //   const stats = new Stats();
-  //   stats.showPanel(0); // Show FPS panel (0: fps, 1: ms, 2: mb, 3+: custom)
-  //   document.body.appendChild(stats.dom);
+  useEffect(() => {
+    const stats = new Stats();
+    stats.showPanel(0); // Show FPS panel (0: fps, 1: ms, 2: mb, 3+: custom)
+    document.body.appendChild(stats.dom);
 
-  //   const animate = () => {
-  //     stats.begin();
-  //     stats.end();
-  //     requestAnimationFrame(animate);
-  //   };
+    const animate = () => {
+      stats.begin();
+      stats.end();
+      requestAnimationFrame(animate);
+    };
 
-  //   requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
 
-  //   return () => {
-  //     document.body.removeChild(stats.dom);
-  //   };
-  // }, []);
+    return () => {
+      document.body.removeChild(stats.dom);
+    };
+  }, []);
   const cameraRef = useRef();
 
   const updateCameraPosition = () => {

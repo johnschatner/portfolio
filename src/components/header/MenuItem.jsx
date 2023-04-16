@@ -20,12 +20,6 @@ const textVariants = {
 };
 
 function MenuItem({ to, active, children }) {
-  const { doHoverEffect } = useContext(PortfolioContext);
-
-  const handleMouse = (e) => {
-    doHoverEffect(e);
-  };
-
   return (
     <AnimatePresence mode="wait">
       {active ? (
@@ -45,9 +39,7 @@ function MenuItem({ to, active, children }) {
           exit="hidden"
           variants={textVariants}
         >
-          <div onMouseEnter={handleMouse} onMouseLeave={handleMouse}>
-            <Link to={to}>{children}</Link>
-          </div>
+          <Link to={to}>{children}</Link>
         </motion.div>
       )}
     </AnimatePresence>
