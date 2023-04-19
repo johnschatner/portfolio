@@ -3,7 +3,7 @@
   z-index: 999;
   overflow: hidden;
 
-  padding: 2rem;
+  padding: 3rem;
 
   top: 0;
   left: 0;
@@ -14,13 +14,13 @@
 .site-inner-wrapper {
   height: 100%;
   position: relative;
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .site-content {
   position: absolute;
   z-index: 10;
-  padding: 0 4rem 5rem 0;
+  padding: 0 3rem 4rem 0;
   right: 0;
   bottom: 0;
 }
@@ -36,7 +36,7 @@
   width: 100%;
 
   outline: 1px solid #808080;
-  outline-offset: -2rem;
+  outline-offset: -3rem;
 }
 
 @media (max-width: 768px) {

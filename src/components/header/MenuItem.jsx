@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { PortfolioContext } from "../main/PortfolioContext";
-import { useContext } from "react";
 
 const fadeInOut = {
   hidden: { opacity: 0 },
@@ -15,34 +13,34 @@ const circleVariants = {
 };
 
 const textVariants = {
-  ...fadeInOut,
-  transition: { duration: 0.3 },
+  hidden: { opacity: 0, transition: { duration: 0.2 } },
+  visible: { opacity: 1, transition: { duration: 0.2 } },
+  exit: { opacity: 0, transition: { duration: 0.2 } },
 };
 
 function MenuItem({ to, active, children }) {
   return (
-    <AnimatePresence mode="wait">
-      {active ? (
+    <div>
+      <AnimatePresence>
         <motion.div
           key="circle"
           className="menu-circle"
-          initial="hidden"
-          animate="visible"
+          initial={active ? "hidden" : "visible"}
+          animate={active ? "visible" : "hidden"}
           exit="hidden"
           variants={circleVariants}
         ></motion.div>
-      ) : (
         <motion.div
           key="text"
-          initial="hidden"
-          animate="visible"
+          initial={active ? "visible" : "hidden"}
+          animate={active ? "hidden" : "visible"}
           exit="hidden"
           variants={textVariants}
         >
           <Link to={to}>{children}</Link>
         </motion.div>
-      )}
-    </AnimatePresence>
+      </AnimatePresence>
+    </div>
   );
 }
 

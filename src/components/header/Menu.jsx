@@ -35,38 +35,32 @@ function Menu() {
   }, []);
 
   return (
-    <nav className="main-menu" ref={menuRef}>
+    <nav
+      className="main-menu"
+      ref={menuRef}
+      onMouseEnter={handleMouse}
+      onMouseLeave={handleMouse}
+    >
       <ul>
         <li>
-          <div onMouseEnter={handleMouse} onMouseLeave={handleMouse}>
-            <MenuItem to={"/"} active={location.pathname === "/"}>
-              Home
-            </MenuItem>
-          </div>
+          <MenuItem to={"/"} active={location.pathname === "/"}>
+            Home
+          </MenuItem>
         </li>
         <li>
-          <div onMouseEnter={handleMouse} onMouseLeave={handleMouse}>
-            <MenuItem
-              to={"/projects"}
-              active={location.pathname === "/projects"}
-            >
-              Projects
-            </MenuItem>
-          </div>
+          <MenuItem to={"/projects"} active={location.pathname === "/projects"}>
+            Projects
+          </MenuItem>
         </li>
         <li>
-          <div onMouseEnter={handleMouse} onMouseLeave={handleMouse}>
-            <MenuItem to={"/about"} active={location.pathname === "/about"}>
-              Made with
-            </MenuItem>
-          </div>
+          <MenuItem to={"/about"} active={location.pathname === "/about"}>
+            Made with
+          </MenuItem>
         </li>
         <li>
-          <div onMouseEnter={handleMouse} onMouseLeave={handleMouse}>
-            <MenuItem to={"/contact"} active={location.pathname === "/contact"}>
-              Contact
-            </MenuItem>
-          </div>
+          <MenuItem to={"/contact"} active={location.pathname === "/contact"}>
+            Contact
+          </MenuItem>
         </li>
       </ul>
     </nav>

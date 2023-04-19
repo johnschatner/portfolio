@@ -1,5 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
 
+// Context
+import { PortfolioContextProvider } from "../components/main/PortfolioContext";
+
 // Components
 import SiteWrapper from "../components/main/SiteWrapper";
 import AnimatedRoutes from "./AnimatedRoutes";
@@ -7,9 +10,11 @@ import AnimatedRoutes from "./AnimatedRoutes";
 function PortfolioRouter() {
   return (
     <BrowserRouter>
-      <SiteWrapper>
-        <AnimatedRoutes></AnimatedRoutes>
-      </SiteWrapper>
+      <PortfolioContextProvider>
+        <SiteWrapper>
+          <AnimatedRoutes></AnimatedRoutes>
+        </SiteWrapper>
+      </PortfolioContextProvider>
     </BrowserRouter>
   );
 }

@@ -14,9 +14,20 @@ export const PortfolioContextProvider = (props) => {
   );
   const [targetWavePositions, setTargetWavePositions] = useState(null);
   const [isHovering, setIsHovering] = useState(false);
+  const [activeMenuItem, setActiveMenuItem] = useState("/");
 
   const doHoverEffect = (e) => {
-    console.log(e);
+    // If the user is already hovering, don't do anything
+    if (e.type === "click") {
+      if (isHovering) {
+        return;
+        // If the user is not hovering, disable the hover effect
+      } else {
+        setIsHovering(false);
+        setBACKGROUND(1);
+        setTargetWavePositions(null);
+      }
+    }
 
     const newOpacity = e.type === "mouseenter" ? (THEME === "dark" ? 4 : 2) : 1;
 
