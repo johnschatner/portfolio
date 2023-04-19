@@ -23,16 +23,16 @@ body.light {
   background-color: #e3e3e3;
 }
 body.light div {
-  color: var(--primary-color-dark);
+  color: var(--primary-color-black);
 }
 body.light a {
-  color: var(--primary-color-dark);
+  color: var(--primary-color-black);
 }
 body.light .menu-circle {
   background-color: var(--primary-color-dark);
 }
 body.light span {
-  color: var(--primary-color-dark);
+  color: var(--primary-color-black);
 }
 body.light p {
   color: var(--primary-color-black);

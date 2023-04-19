@@ -22,13 +22,14 @@
   position: relative;
   font-size: 3.25rem;
   letter-spacing: -0.0475em;
-  font-weight: 200;
+  font-weight: 300;
+  line-height: 1.2;
 }
 .logo-work-title {
   margin-left: 4px;
   font-size: 1rem;
   letter-spacing: -0.0175em;
-  font-weight: 300;
+  font-weight: 400;
 }
 @media (max-width: 768px) {
   .logo {
