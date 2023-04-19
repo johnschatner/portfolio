@@ -14,7 +14,6 @@ export const PortfolioContextProvider = (props) => {
   );
   const [targetWavePositions, setTargetWavePositions] = useState(null);
   const [isHovering, setIsHovering] = useState(false);
-  const [activeMenuItem, setActiveMenuItem] = useState("/");
 
   const doHoverEffect = (e) => {
     // If the user is already hovering, don't do anything
