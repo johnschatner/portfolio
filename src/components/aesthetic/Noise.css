@@ -8,45 +8,105 @@
   background-image: url(/src/assets/noise.png);
   background-size: 350px;
   background-repeat: repeat;
+  -webkit-animation: bg-animation 7s steps(10) infinite;
   animation: bg-animation 7s steps(10) infinite;
+  -webkit-filter: invert(1);
   filter: invert(1);
   opacity: 0.7;
   visibility: visible;
   pointer-events: none;
 }
 
-@keyframes bg-animation {
+@-webkit-keyframes bg-animation {
   0% {
+    -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
   }
   10% {
+    -webkit-transform: translate(-5%, -5%);
     transform: translate(-5%, -5%);
   }
   20% {
+    -webkit-transform: translate(-10%, 5%);
     transform: translate(-10%, 5%);
   }
   30% {
+    -webkit-transform: translate(5%, -10%);
     transform: translate(5%, -10%);
   }
   40% {
+    -webkit-transform: translate(-5%, 15%);
     transform: translate(-5%, 15%);
   }
   50% {
+    -webkit-transform: translate(-10%, 5%);
     transform: translate(-10%, 5%);
   }
   60% {
+    -webkit-transform: translate(15%, 0);
     transform: translate(15%, 0);
   }
   70% {
+    -webkit-transform: translate(0, 10%);
     transform: translate(0, 10%);
   }
   80% {
+    -webkit-transform: translate(-15%, 0);
     transform: translate(-15%, 0);
   }
   90% {
+    -webkit-transform: translate(10%, 5%);
     transform: translate(10%, 5%);
   }
   100% {
+    -webkit-transform: translate(5%, 0);
+    transform: translate(5%, 0);
+  }
+}
+
+@keyframes bg-animation {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  10% {
+    -webkit-transform: translate(-5%, -5%);
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    -webkit-transform: translate(-10%, 5%);
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    -webkit-transform: translate(5%, -10%);
+    transform: translate(5%, -10%);
+  }
+  40% {
+    -webkit-transform: translate(-5%, 15%);
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    -webkit-transform: translate(-10%, 5%);
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    -webkit-transform: translate(15%, 0);
+    transform: translate(15%, 0);
+  }
+  70% {
+    -webkit-transform: translate(0, 10%);
+    transform: translate(0, 10%);
+  }
+  80% {
+    -webkit-transform: translate(-15%, 0);
+    transform: translate(-15%, 0);
+  }
+  90% {
+    -webkit-transform: translate(10%, 5%);
+    transform: translate(10%, 5%);
+  }
+  100% {
+    -webkit-transform: translate(5%, 0);
     transform: translate(5%, 0);
   }
 }

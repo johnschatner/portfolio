@@ -45,6 +45,8 @@ body.light .theme-selector svg {
 /*Sitewide SVG effects*/
 .theme-selector svg {
   opacity: 0.6;
+  -webkit-transition: 100ms ease-in-out;
+  -o-transition: 100ms ease-in-out;
   transition: 100ms ease-in-out;
 }
 .theme-selector svg:hover {

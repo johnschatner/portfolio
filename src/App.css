@@ -31,6 +31,8 @@ body {
   cursor: pointer;
   font-weight: 500;
   opacity: 0.8;
+  -webkit-transition: 150ms ease-in-out;
+  -o-transition: 150ms ease-in-out;
   transition: 150ms ease-in-out;
 }
 .jk-link:hover {
@@ -63,6 +65,7 @@ body {
 *,
 *::before,
 *::after {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 /*

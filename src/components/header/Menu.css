@@ -5,18 +5,29 @@
   margin-left: 6px;
 }
 .main-menu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .main-menu li {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   min-height: 30px;
 }
 .main-menu a {
+  -webkit-transition: 150ms ease-in-out;
+  -o-transition: 150ms ease-in-out;
   transition: 150ms ease-in-out;
   font-size: 0.875rem;
   font-weight: 600;
@@ -31,6 +42,8 @@
 .menu-circle {
   position: absolute;
   top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   height: 9px;
   width: 8px;
