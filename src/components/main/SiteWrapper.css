@@ -50,4 +50,7 @@
   .site-content {
     padding: 0 2rem 0 0;
   }
+  .site-border {
+    outline-offset: -1.75rem;
+  }
 }
