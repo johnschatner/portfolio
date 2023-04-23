@@ -27,6 +27,9 @@ body {
   overflow: hidden;
 }
 
+.page-header {
+  margin-bottom: 1.5rem;
+}
 .scroll-indicator {
   display: none;
 }
@@ -93,6 +96,9 @@ body {
   width: fit-content;
   border-bottom: 1px solid #8d8d8d;
   display: inline-block;
+}
+.jk-border-link:hover {
+  opacity: 1;
 }
 .jk-link {
   cursor: pointer;
