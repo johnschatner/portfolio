@@ -18,6 +18,10 @@ body.dark .menu-circle {
 body.dark p {
   color: var(--primary-color-white);
 }
+body.dark .logo-work-title {
+  color: var(--primary-color-neutral);
+}
+
 /*Light theme*/
 body.light {
   background-color: #e3e3e3;
