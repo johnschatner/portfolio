@@ -12,6 +12,11 @@
   --primary-color-black: #080808;
 }
 
+p {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
 html,
 body {
   padding: 0;
