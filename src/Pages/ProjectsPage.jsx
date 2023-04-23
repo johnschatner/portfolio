@@ -15,7 +15,7 @@ function ProjectsPage() {
           target="_blank"
           className="jk-border-link"
         >
-          View all on GitHub
+          All repos on GitHub
         </a>
         <div className="list-projects">
           <div className="list-projects-inner">
