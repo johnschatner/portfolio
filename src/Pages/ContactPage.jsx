@@ -10,6 +10,12 @@ function ContactPage() {
       transition={{ duration: 0.3 }}
     >
       <div className="contact-page">
+        <div className="profile-picture">
+          <img
+            src="/public/pp/pp.jpg"
+            alt="A rather flattering picture of myself :)"
+          />
+        </div>
         <div className="jk-sublink">Get in touch via</div>
         <div className="contact-method">
           <a

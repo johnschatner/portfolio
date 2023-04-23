@@ -3,3 +3,22 @@
     padding: 0 0.5rem 3rem 0;
   }
 }
+
+.profile-picture {
+  width: 100px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  filter: saturate(0);
+  -webkit-filter: saturate(0);
+  opacity: 0.92;
+  transition: 150ms ease-in-out;
+}
+
+.profile-picture:hover {
+  filter: saturate(1);
+  -webkit-filter: saturate(1);
+  opacity: 1;
+}
