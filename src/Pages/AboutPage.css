@@ -49,5 +49,6 @@
   .made-with-section {
     overflow-y: scroll;
     height: 50vh;
+    gap: 1.5rem;
   }
 }
