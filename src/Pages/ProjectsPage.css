@@ -93,7 +93,13 @@
 }
 
 /*Make it responsive*/
-@media (max-width: 1260px) {
+@media (min-height: 1060px) {
+  .list-projects {
+    height: 100%;
+  }
+}
+
+@media (max-width: 1260px), (max-height: 1060px) {
   .blur-last-item {
     padding-right: 1rem;
   }
@@ -123,10 +129,5 @@
   .project-description > span {
     font-size: 0.925rem;
     font-weight: 500;
-  }
-}
-@media (min-height: 868px) {
-  .list-projects {
-    height: 100%;
   }
 }
