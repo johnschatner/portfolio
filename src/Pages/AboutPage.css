@@ -12,7 +12,26 @@
   -ms-flex-direction: column;
   flex-direction: column;
   gap: 3rem;
-  margin-bottom: 2rem;
+}
+
+.made-with-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5rem;
+
+  -webkit-backdrop-filter: blur(1px);
+
+  backdrop-filter: blur(1px);
+  --webkit-backdrop-filter: blur(1px);
+}
+
+.about-page .jk-link {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #8d8d8d;
+  display: inline-block;
 }
 
 .library-title {
@@ -30,7 +49,7 @@
 
 @media (max-width: 768px) {
   .about-page {
-    padding: 0 1rem 3rem 0;
+    padding: 0 1rem 0 0;
   }
   .library-title {
     font-size: 1.5rem;

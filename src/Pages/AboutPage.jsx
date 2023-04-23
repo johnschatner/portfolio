@@ -10,6 +10,13 @@ function AboutPage() {
       transition={{ duration: 0.3 }}
     >
       <div className="about-page">
+        <a
+          href="https://github.com/johnschatner/portfolio"
+          target="_blank"
+          className="jk-link"
+        >
+          GitHub Repo
+        </a>
         <div className="made-with-section">
           <div className="library-container">
             <div className="library-title">React</div>
@@ -44,13 +51,6 @@ function AboutPage() {
             </p>
           </div>
         </div>
-        <a
-          href="https://github.com/johnschatner/portfolio"
-          target="_blank"
-          className="jk-link"
-        >
-          GitHub Repo
-        </a>
       </div>
     </motion.div>
   );
