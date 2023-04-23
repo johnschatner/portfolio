@@ -13,7 +13,7 @@ function AboutPage() {
         <a
           href="https://github.com/johnschatner/portfolio"
           target="_blank"
-          className="jk-link"
+          className="jk-border-link"
         >
           GitHub Repo
         </a>

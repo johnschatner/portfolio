@@ -33,6 +33,18 @@ body {
   font-weight: 300;
   opacity: 0.75;
 }
+.jk-border-link {
+  cursor: pointer;
+  font-weight: 500;
+  opacity: 0.8;
+  -webkit-transition: 150ms ease-in-out;
+  -o-transition: 150ms ease-in-out;
+  transition: 150ms ease-in-out;
+
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #8d8d8d;
+  display: inline-block;
+}
 .jk-link {
   cursor: pointer;
   font-weight: 500;
