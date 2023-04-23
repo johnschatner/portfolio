@@ -145,8 +145,6 @@ function ProjectsPage() {
                 </div>
               </div>
             </a>
-
-            <br />
           </div>
         </div>
       </div>
