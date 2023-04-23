@@ -10,13 +10,16 @@ function ProjectsPage() {
       transition={{ duration: 0.3 }}
     >
       <div className="blur-last-item">
-        <a
-          href="https://github.com/johnschatner"
-          target="_blank"
-          className="jk-border-link"
-        >
-          All repos on GitHub
-        </a>
+        <div className="page-header">
+          <div className="scroll-indicator">Scroll</div>
+          <a
+            href="https://github.com/johnschatner"
+            target="_blank"
+            className="jk-border-link"
+          >
+            All repos on GitHub
+          </a>
+        </div>
         <div className="list-projects">
           <div className="list-projects-inner">
             <a href="https://reactreshop.netlify.app/" target="_blank">

@@ -27,6 +27,47 @@ body {
   overflow: hidden;
 }
 
+.scroll-indicator {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .scroll-indicator {
+    display: inline-block;
+    position: relative;
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+  .scroll-indicator::after {
+    content: "";
+    margin-left: 0.25rem;
+    display: inline-block;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: rgb(126, 126, 126);
+    animation: opacity 1s alternate infinite;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .jk-sublink {
   pointer-events: none;
   margin-bottom: 0.5rem;

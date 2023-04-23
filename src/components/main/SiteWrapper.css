@@ -62,7 +62,7 @@
     position: static;
   }
   .site-content {
-    padding: 0 2rem 0 0;
+    padding: 0 2rem 0 3.5rem;
   }
   .site-border {
     outline-offset: -1.5rem;
