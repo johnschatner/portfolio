@@ -16,6 +16,37 @@
   opacity: 0.8;
   transition: 250ms ease-in-out;
 }
+.profile-picture-container {
+  position: relative;
+}
+.profile-picture-container::after {
+  content: "";
+
+  inset: 0;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(45deg, rgb(146, 146, 146), rgb(51, 51, 51));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  border-radius: 50%;
+  height: calc(100px + 12px);
+  width: calc(100px + 12px);
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  animation: spin 30s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .contact-page:hover .profile-picture {
   filter: saturate(0.5);

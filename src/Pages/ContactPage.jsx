@@ -10,8 +10,9 @@ function ContactPage() {
       transition={{ duration: 0.3 }}
     >
       <div className="contact-page">
-        <div className="profile-picture">
+        <div className="profile-picture-container">
           <img
+            className="profile-picture"
             src="/public/pp/pp.jpg"
             alt="A rather flattering picture of myself :)"
           />
