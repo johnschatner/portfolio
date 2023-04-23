@@ -2,7 +2,7 @@
   position: absolute;
   z-index: 15;
   margin-top: 2rem;
-  margin-left: 6px;
+  margin-left: 4px;
 }
 .main-menu ul {
   display: -webkit-box;
@@ -47,4 +47,10 @@
   transform: translateY(-50%);
   height: 9px;
   width: 8px;
+}
+@media (max-width: 768px) {
+  .main-menu {
+    margin-top: 1rem;
+    margin-left: 2px;
+  }
 }
