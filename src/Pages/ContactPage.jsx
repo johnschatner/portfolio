@@ -27,7 +27,11 @@ function ContactPage() {
           </a>
         </div>
         <div className="contact-method">
-          <a className="jk-link" target="_blank" href="mailto:mail@mail.com">
+          <a
+            className="jk-link"
+            target="_blank"
+            href="mailto:isacrs.dev@gmail.com"
+          >
             Email
           </a>
         </div>

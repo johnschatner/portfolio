@@ -13,12 +13,12 @@
   margin-bottom: 1rem;
   filter: saturate(0);
   -webkit-filter: saturate(0);
-  opacity: 0.92;
-  transition: 150ms ease-in-out;
+  opacity: 0.8;
+  transition: 250ms ease-in-out;
 }
 
-.profile-picture:hover {
-  filter: saturate(1);
-  -webkit-filter: saturate(1);
+.contact-page:hover .profile-picture {
+  filter: saturate(0.5);
+  -webkit-filter: saturate(0.5);
   opacity: 1;
 }
