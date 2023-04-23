@@ -34,17 +34,22 @@ body {
 @media (max-width: 768px) {
   .page-header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
     width: 100%;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
   }
   .scroll-indicator {
+    order: 2;
+    -ms-flex-order: 2;
     display: inline-block;
     position: relative;
     margin-top: 2px;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-weight: 500;
-    font-size: 0.75rem;
+    font-size: 0.625rem;
     opacity: 0.7;
   }
   .scroll-indicator::after {
@@ -61,9 +66,11 @@ body {
 
 @keyframes opacity {
   0% {
+    transform: translateY(2px) scale(0.92);
     opacity: 0.75;
   }
   100% {
+    transform: translateY(-1px) scale(0.96);
     opacity: 1;
   }
 }
@@ -84,7 +91,6 @@ body {
   transition: 150ms ease-in-out;
 
   width: fit-content;
-  margin-bottom: 1.5rem;
   border-bottom: 1px solid #8d8d8d;
   display: inline-block;
 }
@@ -99,7 +105,8 @@ body {
 .jk-link:hover {
   opacity: 1;
 }
-.jk-link::after {
+.jk-link::after,
+.jk-border-link::after {
   content: "\2197\FE0E";
   font-weight: 700;
   margin-left: 0.25rem;
