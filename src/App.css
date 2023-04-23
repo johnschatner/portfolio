@@ -39,7 +39,7 @@ body {
   opacity: 1;
 }
 .jk-link::after {
-  content: "↗";
+  content: "↗&#xFE0E;";
   font-weight: 700;
   margin-left: 0.25rem;
 }
