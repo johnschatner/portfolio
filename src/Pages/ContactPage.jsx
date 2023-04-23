@@ -11,13 +11,20 @@ function ContactPage() {
     >
       <div className="contact-page">
         <div className="jk-sublink">Get in touch via</div>
-        <a
-          className="jk-link"
-          target="_blank"
-          href="https://www.linkedin.com/in/isac-rasmusson/"
-        >
-          LinkedIn
-        </a>
+        <div className="contact-method">
+          <a
+            className="jk-link"
+            target="_blank"
+            href="https://www.linkedin.com/in/isac-rasmusson/"
+          >
+            LinkedIn
+          </a>
+        </div>
+        <div className="contact-method">
+          <a className="jk-link" target="_blank" href="mailto:mail@mail.com">
+            Email
+          </a>
+        </div>
       </div>
     </motion.div>
   );

@@ -28,7 +28,7 @@ export const PortfolioContextProvider = (props) => {
       }
     }
 
-    const newOpacity = e.type === "mouseenter" ? (THEME === "dark" ? 4 : 2) : 1;
+    const newOpacity = e.type === "mouseenter" ? (THEME === "dark" ? 2 : 4) : 1;
 
     setTargetOpacity(targetOpacity.map(() => newOpacity));
 

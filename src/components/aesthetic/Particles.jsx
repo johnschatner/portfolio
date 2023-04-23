@@ -58,7 +58,7 @@ const ParticleSystem = () => {
     for (let i = 0, idx = 0; i < gridSize; i++) {
       for (let j = 0; j < gridSize; j++, idx += 3) {
         if (idx / 3 < count) {
-          positions.current[idx] = (i / (gridSize - 2)) * width - width / 2;
+          positions.current[idx] = (i / (gridSize - 1)) * width - width / 2;
           positions.current[idx + 1] =
             (j / (gridSize - 1)) * height - height / 2;
           positions.current[idx + 2] = 0;
@@ -150,7 +150,7 @@ const ParticleSystem = () => {
     waveOffsets[idx + 1] = Math.random() * 2 * Math.PI;
 
     // create waves with random amplitude
-    waveHeights[i] = 0.05 + Math.random() * 0.5;
+    waveHeights[i] = 0.05 + Math.random() * 0.1;
   }
   const opacityArray = new Float32Array(count);
   opacityArray.fill(0);
@@ -215,14 +215,14 @@ const ParticleSystem = () => {
   // Initialize random amplitudes for each particle
   if (randomAmplitudes.current.every((value) => value === 0)) {
     randomAmplitudes.current = randomAmplitudes.current.map(
-      () => -1 * (Math.random() * (11 - 4) + 4)
+      () => 20 / (Math.random() * (11 - 10) * 50)
     );
   }
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime() * speedMultiplier;
     const { width, height } = state.viewport;
-    const opacityTransitionSpeed = 0.075;
+    const opacityTransitionSpeed = 0.025;
 
     // Update the transitionProgress based on the hovering status
     const newTransitionProgress = isHovering
@@ -291,7 +291,7 @@ const ParticleSystem = () => {
           finalWaveHeight * -2;
 
         const opacity =
-          waveHeight < 0 ? (THEME === "dark" ? 0.1 : 0.3) : waveHeight * 0.5;
+          waveHeight < 0 ? (THEME === "dark" ? 0.05 : 0.15) : waveHeight * 1;
 
         particles.current.geometry.attributes.opacity.array[idx / 3] =
           opacity * newCurrentOpacity[idx / 3];
