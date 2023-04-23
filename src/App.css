@@ -41,7 +41,8 @@ body {
   -o-transition: 150ms ease-in-out;
   transition: 150ms ease-in-out;
 
-  margin-bottom: 1rem;
+  width: fit-content;
+  margin-bottom: 1.5rem;
   border-bottom: 1px solid #8d8d8d;
   display: inline-block;
 }

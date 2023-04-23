@@ -10,15 +10,15 @@ function ProjectsPage() {
       transition={{ duration: 0.3 }}
     >
       <div className="blur-last-item">
+        <a
+          href="https://github.com/johnschatner"
+          target="_blank"
+          className="jk-border-link"
+        >
+          View all on GitHub
+        </a>
         <div className="list-projects">
           <div className="list-projects-inner">
-            <a
-              href="https://github.com/johnschatner"
-              target="_blank"
-              className="jk-border-link"
-            >
-              View all on GitHub
-            </a>
             <a href="https://reactreshop.netlify.app/" target="_blank">
               <div className="project-container">
                 <div className="project-content">
