@@ -13,7 +13,7 @@ function ContactPage() {
         <div className="profile-picture-container">
           <img
             className="profile-picture"
-            src="/public/pp/pp.jpg"
+            src="/pp/pp.jpg"
             alt="A rather flattering picture of myself :)"
           />
         </div>
