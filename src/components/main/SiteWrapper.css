@@ -67,6 +67,16 @@
   .site-border {
     outline-offset: -3rem;
   }
+}
+@media (max-width: 1260px) {
+  .site-inner-wrapper {
+    position: static;
+  }
+  .site-content {
+    padding: 0 4rem 0 3.5rem;
+  }
+}
+@media (min-width: 769px) {
   .site-content::after {
     content: "";
     position: absolute;
