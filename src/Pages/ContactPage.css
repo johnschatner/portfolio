@@ -66,3 +66,10 @@
     width: calc(var(--pp-size-md) + 12px);
   }
 }
+
+@media (max-width: 1260px), (max-height: 1060px) {
+  .contact-page {
+    padding: 0 0rem 5rem 0;
+    margin-right: 2rem;
+  }
+}

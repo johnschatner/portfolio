@@ -27,6 +27,12 @@
   margin-left: auto;
 }
 
+@media (max-width: 1260px), (max-height: 1060px) {
+  .about-page {
+    padding-right: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .about-page {
     padding: 0 1rem 0 0;

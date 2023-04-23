@@ -34,7 +34,7 @@ body {
   display: none;
 }
 
-@media (max-width: 1260px), (max-height: 1260px) {
+@media (max-width: 1260px), (max-height: 1060px) {
   .page-header {
     display: flex;
     flex-direction: column;
