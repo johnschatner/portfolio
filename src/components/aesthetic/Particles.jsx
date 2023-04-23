@@ -291,7 +291,7 @@ const ParticleSystem = () => {
           finalWaveHeight * -2;
 
         const opacity =
-          waveHeight < 0 ? (THEME === "dark" ? 0.05 : 0.15) : waveHeight * 1;
+          waveHeight < 0 ? (THEME === "dark" ? 0.05 : 0.1) : waveHeight * 1;
 
         particles.current.geometry.attributes.opacity.array[idx / 3] =
           opacity * newCurrentOpacity[idx / 3];
