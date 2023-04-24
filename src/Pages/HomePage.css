@@ -3,9 +3,3 @@
     padding: 0 0.5rem 3rem 0;
   }
 }
-@media (max-width: 1260px), (max-height: 1060px) {
-  .landing-banner {
-    padding: 0 0rem 5rem 0;
-    margin-right: 2rem;
-  }
-}

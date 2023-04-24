@@ -148,10 +148,6 @@ function ProjectsPage() {
                 </div>
               </div>
             </a>
-
-            <br />
-            <br />
-            <br />
           </div>
         </div>
       </div>
