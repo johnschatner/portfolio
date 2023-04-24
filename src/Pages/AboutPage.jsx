@@ -54,6 +54,8 @@ function AboutPage() {
               responsive animations for an enhanced user experience.
             </p>
           </div>
+
+          <br />
         </div>
       </div>
     </motion.div>
