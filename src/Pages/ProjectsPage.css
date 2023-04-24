@@ -98,10 +98,10 @@
     padding-right: 1rem;
   }
   .list-projects {
-    height: 50vh;
+    height: 60vh;
   }
   .list-projects-inner a:last-child {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   .project-content {
     -webkit-box-orient: vertical;
