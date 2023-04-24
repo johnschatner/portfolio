@@ -37,6 +37,9 @@
   .library-desc {
     max-width: 200px;
   }
+  .made-with-section .library-container:last-child {
+    margin-bottom: 3rem;
+  }
   /* Hide scrollbar for Chrome, Safari and Opera */
   .made-with-section::-webkit-scrollbar {
     display: none;
