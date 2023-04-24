@@ -26,6 +26,9 @@ body {
   height: 100%;
   overflow: hidden;
 }
+body {
+  transition: 250ms ease-in-out;
+}
 
 .page-header {
   margin-bottom: 1.5rem;

@@ -23,9 +23,9 @@ function SiteWrapper() {
         <Noise />
         <Header></Header>
         <ThreeJS></ThreeJS>
-        <div className="site-content">
+        <main className="site-content">
           <AnimatedRoutes />
-        </div>
+        </main>
       </div>
     </div>
   );
