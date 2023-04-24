@@ -54,8 +54,16 @@
   display: inline-block;
   width: 330px;
 }
+
+.logo-alias ion-icon {
+  font-size: 30px;
+}
+
 @media (max-width: 768px) {
   .logo:hover .logo-alias {
     width: 200px;
+  }
+  .logo-alias ion-icon {
+    font-size: 20px;
   }
 }

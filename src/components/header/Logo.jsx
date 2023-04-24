@@ -23,7 +23,7 @@ function Logo() {
           </span>
           <span className="logo-fullname">Isac Rasmusson</span>
           <span className="logo-alias">
-            <ion-icon name="logo-github" size="large"></ion-icon>
+            <ion-icon name="logo-github"></ion-icon>
             johnschatner
           </span>
         </Link>
