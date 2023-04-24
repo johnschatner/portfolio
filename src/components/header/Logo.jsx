@@ -22,7 +22,10 @@ function Logo() {
             A portfolio showcasing works by johnschatner (IsacR)
           </span>
           <span className="logo-fullname">Isac Rasmusson</span>
-          <span className="logo-alias">johnschatner</span>
+          <span className="logo-alias">
+            <ion-icon name="logo-github" size="large"></ion-icon>
+            johnschatner
+          </span>
         </Link>
       </div>
       <span className="logo-work-title">Frontend Developer</span>
