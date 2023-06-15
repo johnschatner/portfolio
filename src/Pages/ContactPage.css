@@ -5,7 +5,7 @@
 }
 
 .profile-picture {
-  width: var(--pp-size-lg);
+  width: var(--pp-size-md);
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
@@ -30,8 +30,8 @@
   mask-composite: exclude;
 
   border-radius: 50%;
-  height: calc(var(--pp-size-lg) + 12px);
-  width: calc(var(--pp-size-lg) + 12px);
+  height: calc(var(--pp-size-md) + 12px);
+  width: calc(var(--pp-size-md) + 12px);
   position: absolute;
   top: -6px;
   left: -6px;
