@@ -7,10 +7,11 @@ function LandingBanner() {
       <div className="landing-banner-container">
         <div className="landing-banner-content">
           <p>
-            I was born in 2001 in Helsingborg, Sweden, and I'm all about web
-            development and its unlimited creative potential. I love to
-            experiment and think deeply to come up with fresh and exciting
-            solutions.
+            Throughout my life, I have explored different passions, but none
+            have captivated me like web development. Its limitless creative
+            possibilities have stood the test of time and continue to inspire
+            me. The process of finding unique solutions drives me to create
+            engaging web experiences. Let's connect.
           </p>
         </div>
       </div>
