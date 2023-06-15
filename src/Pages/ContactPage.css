@@ -10,7 +10,6 @@
   object-fit: cover;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 1rem;
   filter: saturate(0);
   -webkit-filter: saturate(0);
   opacity: 0.8;

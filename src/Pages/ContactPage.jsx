@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import "./ContactPage.css";
 
+import SkeletonImage from "../components/skeleton/SkeletonImage";
+
 function ContactPage() {
   return (
     <motion.div
@@ -10,13 +12,18 @@ function ContactPage() {
       transition={{ duration: 0.3 }}
     >
       <div className="contact-page">
-        <div className="profile-picture-container">
+        <SkeletonImage
+          delay={1000}
+          className="profile-picture-container"
+          skeletonClassName="profile-picture"
+        >
           <img
             className="profile-picture"
             src="/pp/pp.jpg"
             alt="A rather flattering picture of myself :)"
           />
-        </div>
+        </SkeletonImage>
+
         <div className="jk-sublink">Get in touch via</div>
         <div className="contact-method">
           <a
