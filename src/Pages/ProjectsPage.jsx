@@ -22,6 +22,22 @@ function ProjectsPage() {
         </div>
         <div className="list-projects">
           <div className="list-projects-inner">
+            <a
+              href="https://github.com/johnschatner/ShareTaste/"
+              target="_blank"
+            >
+              <div className="project-container">
+                <div className="project-content">
+                  <div className="project-description">
+                    <span className="project-year">2023</span>
+                    <span className="project-type">Personal</span>
+                    <span className="project-desc">Service</span>
+                    <span className="project-lang">React</span>
+                  </div>
+                  <div className="project-title">ShareTaste</div>
+                </div>
+              </div>
+            </a>
             <a href="https://reactreshop.netlify.app/" target="_blank">
               <div className="project-container">
                 <div className="project-content">
