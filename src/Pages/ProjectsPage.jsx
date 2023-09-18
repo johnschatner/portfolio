@@ -22,10 +22,7 @@ function ProjectsPage() {
         </div>
         <div className="list-projects">
           <div className="list-projects-inner">
-            <a
-              href="https://github.com/johnschatner/ShareTaste/"
-              target="_blank"
-            >
+            <a href="https://sharetaste.io/" target="_blank">
               <div className="project-container">
                 <div className="project-content">
                   <div className="project-description">
